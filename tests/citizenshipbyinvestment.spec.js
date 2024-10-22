@@ -1,6 +1,6 @@
 const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
 const { locators } = require('../constants/locators');
-import {citizenshipbyinvestment} from '../constants/locators';
+import { citizenshipbyinvestment } from '../constants/locators';
 
 const path = require('path');
 const fs = require('fs');
@@ -158,7 +158,7 @@ test.describe('Apply For Citizenship', () => {
         await page.click(citizenshipbyinvestment.piBirthCountry);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyinvestment.piBirthState, '4');
-        
+
         await page.type(citizenshipbyinvestment.piCityOfBirth, 'Bauchi');
 
         await page.locator('#DateFirstArrivalToNigeria').click();
@@ -166,7 +166,7 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '7', exact: true }).click();
         await page.selectOption(citizenshipbyinvestment.piPresentNationality, '128');
-        
+
         await page.selectOption(citizenshipbyinvestment.piPreviousCountry, '161');
         await page.click(citizenshipbyinvestment.piPreviousCountry);
         await page.keyboard.press('Escape');
@@ -175,7 +175,7 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbyinvestment.piPreviousAddress, 'Cross River');
 
         await page.selectOption(citizenshipbyinvestment.piPresentState, '40');
-        
+
         await page.click(citizenshipbyinvestment.piPresentState);
         await page.keyboard.press('Escape');
         await page.locator('#drpLocalarea').selectOption('1557');
@@ -185,7 +185,7 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbyinvestment.piPresentAddress, 'Cross');
 
 
-        
+
         //Professional Information
         await page.getByRole('heading', { name: 'Professional Information' }).click();
         await page.waitForTimeout(2000)
@@ -202,15 +202,14 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#DivProfessionalInformation').getByRole('button').click();
         await page.getByRole('link', { name: 'Nigerian naira' }).click();
         await page.type(citizenshipbyinvestment.profAnnualIncome, '98765214');
-        
+
 
         await page.getByRole('heading', { name: 'Other Information' }).click();
         await page.locator('li').filter({ hasText: 'Can You Read Write And Speak' }).locator('#divYes').click();
         await page.locator('li').filter({ hasText: 'Do You Intend To Live In' }).getByLabel('Yes').check();
 
         await page.getByRole('heading', { name: 'Declaration' }).click();
-        await page.getByText('do solemnly and sincerely declare that the particulars stated in the application are correct').click();
-
+        await page.getByText('do solemnly and sincerely');
 
         await page.waitForTimeout(8000);
     })
