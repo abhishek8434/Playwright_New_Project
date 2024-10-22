@@ -425,7 +425,7 @@ test.describe('Apply For Citizenship', () => {
 
 
     //Positive flow
-    test.only('TC 3: Positive Flow', async () => {
+    test('TC 3: Positive Flow', async () => {
 
         await navigateToCitizenshipForm(page);
 
