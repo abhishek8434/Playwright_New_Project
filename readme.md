@@ -31,6 +31,7 @@ The framework is designed to test various workflows like citizenship application
 ├── package.json # Project dependencies and npm scripts 
 ├── package-lock.json
 ├── playwright.config.js
+├── global-teardown.js
 └──  README.md # This documentation
 
 
