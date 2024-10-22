@@ -1,6 +1,8 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+
 const path = require('path');
+
 
 
 /**
@@ -13,6 +15,10 @@ const path = require('path');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+
+
+  // Add the location of your test files
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -23,7 +29,8 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['allure-playwright']],
+  globalTeardown: require.resolve('./global-teardown'), // Add global teardown script
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
   use: {

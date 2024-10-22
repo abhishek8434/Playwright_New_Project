@@ -2,15 +2,19 @@
   "name": "playwright_framework",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:allure": "npx playwright test && npx allure generate allure-results --clean && npx allure open"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@faker-js/faker": "^9.0.3",
-    "@playwright/test": "^1.47.1",
-    "@types/node": "^22.5.5"
+    "@playwright/test": "^1.48.1",
+    "@types/node": "^22.5.5",
+    "allure-playwright": "^3.0.5",
+    "open": "^10.1.0"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
