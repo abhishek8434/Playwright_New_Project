@@ -386,6 +386,20 @@ profNameOfOrganization: '#NameOfOrganization',
 profOrganizationType: '#OrganizationType',
 profPositionHeld: '#PositionHeld',
 profAnnualIncome: '#txtMonthlySalary',
+
+//Document Upload
+passportPhotograph:  '#PassportPhotograph',
+internationalPassport: '#InternationalPassportArrivalStampedPage',
+documentProveforNigeria: '#DocumentaryProveOfProposedInvestmentInNigeria',
+investmentEvidence: '#EvidenceOfRequiredAmountForInvestment',
+policeReport: '#PoliceReportOfCountriesOfResidence',
+writtenApplication: '#WrittenApplicationLetterSignedAndStamped',
+memoUnderstanding: '#MemoRandumOfUnderstanding',
+medicalEvidence: '#EvidenceOfGoodMentalAndPhysicalHealth',
+affidavit: '#SwornAffidavitOfAllegianceToNigeria',
+necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+necessaryDocument: '#necessaryDocumentList_0__Document'
+
 };
 
 

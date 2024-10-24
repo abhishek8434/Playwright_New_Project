@@ -154,7 +154,7 @@ test.describe('Apply For Citizenship', () => {
 
     });
 
-    //Leave all mandatory field blank
+    //Invalid file type
     test('TC 2: Invalid file type', async () => {
         await navigateToCitizenshipForm(page);
 
