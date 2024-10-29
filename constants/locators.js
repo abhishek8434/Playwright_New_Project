@@ -401,6 +401,72 @@ necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
 necessaryDocument: '#necessaryDocumentList_0__Document'
 
 };
+export const citizenshipbysis = {
+
+  RelationshipwithBenefactor: '#txtRelationshipwithBenefactor',
+
+  //personal information 
+   piDateOfBirth: '#DateOfBirth',
+   piBirthCountry: '#drpPlaceOfBirthCountry',
+   piBirthState: '#drpPlaceOfBirthState',
+   piCityOfBirth: '#CityOfBirth',
+   piApplicantState: '#drpApplicantState',
+   piLocalarea: '#drpLocalarea',
+   piDateOfMarriage: '#DateOfMarriage',
+   piPlaceOfMarriage: '#txtPlaceOfMarriage',
+
+   piPreviousAddress: '#AddressList_0__Address',
+   piPreviousCountry: '#AddressList_0__Country',
+   piPreviousState: '#ddlRespastState',
+   piPreviousCity: '#AddressList_0__City',
+   
+   piPresentAddress: '#AddressList_1__Address',
+   piPresentCountry: '#AddressList_1__Country',
+   piPresentState: '#ddlRespresentState',
+   piPresentCity: '#AddressList_1__City',
+
+   //Beneficiary's Information
+  BeneficiaryLastName: '#txtBeneficiaryLastName',
+  BeneficiaryFirstName: '#txtBeneficiaryFirstName',
+  BeneficiaryDateOfBirth: '#BeneficiaryDateOfBirth',
+  BeneficiaryPlaceOfBirthCountry: '#drpBeneficiaryPlaceOfBirthCountry',
+  BeneficiaryPlaceOfBirth: '#txtBeneficiaryPlaceOfBirth',
+  BeneficiaryAddress: '#BeneficiaryAddress',
+  BeneficiaryNationality: '#drpBeneficiaryNationality',
+  BeneficiaryEmail: '#BeneficiaryEmail',
+  BeneficiaryPhoneNumber: '#BeneficiaryPhoneNumber',
+  BeneficiaryPassportNumber: '#internationalPassportNumber',
+
+  //Professional Information 
+  profOccupation: '#Occupation',
+  profNameOfOrganization: '#NameOfOrganization',
+  profOrganizationType: '#OrganizationType',
+  profPositionHeld: '#PositionHeld',
+  profAnnualIncome: '#txtAnnualIncome',
+
+  //Reason For Application
+ReasonOfApplication: '#ReasonOfApplication',
+  
+  //Document Upload
+  passportPhotograph:  '#PassportPhotograph',
+  birthCertificate: 'BirthCertificate',
+  deathCertificate: 'DeathCertificate',
+  incomeEvidence: '#EvidenceOfSourceOfIncome',
+  TaxclearanceCertificate: '#TaxclearanceCertificate',
+  residencePermit: '#ResidencePermit',
+  birthCertificateChildren: '#BirthCertificateOfChildren',
+  identificationDocument: '#ApplicantmeansofIdentification',
+  marriageCertificate: '#MarriageCertificate',
+  nigerianSpouse: '#FormalapplicationfromNigerianSpouseFile',
+  localGovernmentCertificate: '#LocalGovernmentCertificateNigerianSpouseFile',
+  copySignedApplication: '#CopyOfSignedApplication',
+  marriagePhotograph: '#genDocFilePart-1',
+  
+
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
+  
+  };
 
 
 
