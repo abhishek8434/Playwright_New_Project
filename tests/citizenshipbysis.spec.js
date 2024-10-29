@@ -37,7 +37,6 @@ const formData = {
     phone
 };
 
-
 dotenv.config();
 
 const LOGIN_URL = process.env.LOGIN_URL;
@@ -139,8 +138,6 @@ test.describe('Apply For Citizenship', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
         await navigateToCitizenshipForm(page);
-
-
         await page.getByText('No', { exact: true }).click();
         const choice = Math.random() < 0.5 ? 'Yes' : 'No';
 
@@ -167,44 +164,32 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1980');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-
         await page.selectOption(citizenshipbysis.piBirthCountry, '161');
         await page.click(citizenshipbysis.piBirthCountry);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbysis.piBirthState, '4');
-
         await page.type(citizenshipbysis.piCityOfBirth, 'Bauchi');
         await page.locator('#drpApplicantState').selectOption('24');
         await page.click(citizenshipbysis.piApplicantState);
         await page.keyboard.press('Escape');
-
         await page.selectOption(citizenshipbysis.piLocalarea, '1188');
-
-
         await page.locator(citizenshipbysis.piDateOfMarriage).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2018');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-
         await page.type(citizenshipbysis.piPlaceOfMarriage, 'Bauchi');
-
-
         await page.type(citizenshipbysis.piPreviousAddress, 'Cross River');
-
         await page.selectOption(citizenshipbysis.piPreviousCountry, '161');
         await page.click(citizenshipbysis.piPreviousCountry);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbysis.piPreviousState, '2');
         await page.type(citizenshipbysis.piPreviousCity, 'Cross River');
-
         await page.type(citizenshipbysis.piPresentAddress, 'Cross River');
-
         await page.selectOption(citizenshipbysis.piPresentCountry, '161');
         await page.click(citizenshipbysis.piPresentCountry);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbysis.piPresentState, '2');
         await page.type(citizenshipbysis.piPresentCity, 'Cross River');
-
 
         //Beneficiary Information
         await page.getByRole('heading', { name: 'Beneficiary\'s Information' }).click();
