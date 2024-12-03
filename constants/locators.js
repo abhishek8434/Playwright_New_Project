@@ -184,7 +184,7 @@ export const citizinshipform = {
   ddPermanentResidentialCountryId: '#DependantsDetails_PermanentResidentialCountryId',
   ddPermanentResidentialStateId: '#ddlPermanentResidentialStateId',
   ddPermanentResidentialCity: '#DependantsDetails_PermanentResidentialCity',
- 
+
 
   //Guarantor's Details
   gdLastName: '#GuarantorDetailList_0__LastName',
@@ -238,194 +238,195 @@ export const citizinshipform = {
 
 export const citizenshipbyregistration = {
 
- //personal information 
- piDateOfBirth: '#DateOfBirth',
- piBirthCountry: '#drpPlaceOfBirthCountry',
- piBirthState: '#drpPlaceOfBirthState',
- piCityOfBirth: '#CityOfBirth',
- piPreviousAddress: '#AddressList_0__Address',
+  //personal information 
+  piDateOfBirth: '#DateOfBirth',
+  piBirthCountry: '#drpPlaceOfBirthCountry',
+  piBirthState: '#drpPlaceOfBirthState',
+  piCityOfBirth: '#CityOfBirth',
+  piPreviousAddress: '#AddressList_0__Address',
 
- piPreviousCountry: '#AddressList_0__Country',
- piPreviousState: '#DDLRespastState',
- piPreviousCity: '#AddressList_0__City',
- piPresentAddress: '#AddressList_1__Address',
- piPresentCountry: '#AddressList_1__Country',
- piPresentState: '#DDLRespresentState',
- piPresentCity: '#AddressList_1__City',
+  piPreviousCountry: '#AddressList_0__Country',
+  piPreviousState: '#DDLRespastState',
+  piPreviousCity: '#AddressList_0__City',
+  piPresentAddress: '#AddressList_1__Address',
+  piPresentCountry: '#AddressList_1__Country',
+  piPresentState: '#DDLRespresentState',
+  piPresentCity: '#AddressList_1__City',
 
-//Professional Information 
-profOccupation: '#Occupation',
-profNameOfOrganization: '#NameOfOrganization',
-profOrganizationType: '#OrganizationType',
-profPositionHeld: '#PositionHeld',
-profAnnualIncome: '#txtAnnualIncome',
+  //Professional Information 
+  profOccupation: '#Occupation',
+  profNameOfOrganization: '#NameOfOrganization',
+  profOrganizationType: '#OrganizationType',
+  profPositionHeld: '#PositionHeld',
+  profAnnualIncome: '#txtAnnualIncome',
 
 
-//Parent Information
-FatherLastName: '#FatherLastName',
-FatherFirstName: '#FatherFirstName',
-FatherCountryOfBirth: '#FatherCountryOfBirth',
-FatherPlaceOfBirth: '#FatherPlaceOfBirth',
-AddressList_2: '#AddressList_2__Address',
-FatherCountry: '#dllFatherCountry',
-Fatherstate: '#DDLFatherstate',
-AddressList_2__City: '#AddressList_2__City',
-MotherLastName: '#MotherLastName',
-MotherFirstName: '#MotherFirstName',
-MotherMaidenName: '#txtMotherMaidenName',
-MotherCountryOfBirth: '#MotherCountryOfBirth',
-MotherPlaceOfBirth: '#MotherPlaceOfBirth',
-AddressList_3: '#AddressList_3__Address',
-AddressList_3__Country: '#AddressList_3__Country',
-Motherstate: '#DDLMotherstate',
-AddressList_3__City: '#AddressList_3__City',
+  //Parent Information
+  FatherLastName: '#FatherLastName',
+  FatherFirstName: '#FatherFirstName',
+  FatherCountryOfBirth: '#FatherCountryOfBirth',
+  FatherPlaceOfBirth: '#FatherPlaceOfBirth',
+  AddressList_2: '#AddressList_2__Address',
+  FatherCountry: '#dllFatherCountry',
+  Fatherstate: '#DDLFatherstate',
+  AddressList_2__City: '#AddressList_2__City',
+  MotherLastName: '#MotherLastName',
+  MotherFirstName: '#MotherFirstName',
+  MotherMaidenName: '#txtMotherMaidenName',
+  MotherCountryOfBirth: '#MotherCountryOfBirth',
+  MotherPlaceOfBirth: '#MotherPlaceOfBirth',
+  AddressList_3: '#AddressList_3__Address',
+  AddressList_3__Country: '#AddressList_3__Country',
+  Motherstate: '#DDLMotherstate',
+  AddressList_3__City: '#AddressList_3__City',
 
-//Maritial Status
-SpouseDetails: '#ddlSpouseDetails',
+  //Maritial Status
+  SpouseDetails: '#ddlSpouseDetails',
 
-//Spouse Information
-SpouseSurName: '#SpouseSurName',
-SpouseFirstName: '#SpouseFirstName',
-SpouseCountryOfBirth: '#SpouseCountryOfBirth',
-SpouseNationalityId: '#SpouseNationalityId',
-AddressList_4: '#AddressList_4__Address',
-AddressList_4__Country: '#AddressList_4__Country',
-Spousestate: '#DDLSpousestate',
-AddressList_4__City: '#AddressList_4__City',
+  //Spouse Information
+  SpouseSurName: '#SpouseSurName',
+  SpouseFirstName: '#SpouseFirstName',
+  SpouseCountryOfBirth: '#SpouseCountryOfBirth',
+  SpouseNationalityId: '#SpouseNationalityId',
+  AddressList_4: '#AddressList_4__Address',
+  AddressList_4__Country: '#AddressList_4__Country',
+  Spousestate: '#DDLSpousestate',
+  AddressList_4__City: '#AddressList_4__City',
 
-//Cititzenship Information
-ciCitizenshipNationality: '[id="CitizenshipNationalityList\\[0\\]\\.CountryId"]',
-ciHowAcquired: '[id="CitizenshipNationalityList\\[0\\]\\.HowAcquired"]',
-ciPlaceOfAcquisition: '[id="CitizenshipNationalityList\\[0\\]\\.PlaceOfAcquisition"]',
-ciDateOfAcquisition: '[id="CitizenshipNationalityList\\[0\\]\\.DateOfAcquisition"]',
-ciCountryToRenounce: '#CountryIdToRenounce',
-LegalProceedingTaken: '#LegalProceedingTakenAgainst',
+  //Cititzenship Information
+  ciCitizenshipNationality: '[id="CitizenshipNationalityList\\[0\\]\\.CountryId"]',
+  ciHowAcquired: '[id="CitizenshipNationalityList\\[0\\]\\.HowAcquired"]',
+  ciPlaceOfAcquisition: '[id="CitizenshipNationalityList\\[0\\]\\.PlaceOfAcquisition"]',
+  ciDateOfAcquisition: '[id="CitizenshipNationalityList\\[0\\]\\.DateOfAcquisition"]',
+  ciCountryToRenounce: '#CountryIdToRenounce',
+  LegalProceedingTaken: '#LegalProceedingTakenAgainst',
 
-//Guarantor's Details
-gdLastName: '#GuarantorDetailList_0__LastName',
-gdFirstName: '#GuarantorDetailList_0__FirstName',
-gdPlaceOfBirth: '#GuarantorDetailList_0__PlaceOfBirth',
-gdNationality: '#GuarantorDetailList_0__Nationality',
-gdProfession: '#GuarantorDetailList_0__Profession',
-gdRankInProfession: '#GuarantorDetailList_0__RankInProfession',
-gdDateOfBirth: '#GuarantorDetailList_0__DateOfBirth',
-gdHaveKnownOfGuarantor: '#GuarantorDetailList_0__CircumstancesHaveKnownOfGuarantor',
-gdAddress: '#GuarantorDetailList_0__Address',
-gdCountry: '#GuarantorDetailList_0__Country',
-gdState: '#ddlGuarantorState0',
-gdCity: '#GuarantorDetailList_0__City',
-gdLastName1: '#GuarantorDetailList_1__LastName',
-gdFirstName1: '#GuarantorDetailList_1__FirstName',
-gdPlaceOfBirth1: '#GuarantorDetailList_1__PlaceOfBirth',
-gdNationality1: '#GuarantorDetailList_1__Nationality',
-gdProfession1: '#GuarantorDetailList_1__Profession',
-gdRankInProfession1: '#GuarantorDetailList_1__RankInProfession',
-gdDateOfBirth1: '#GuarantorDetailList_1__DateOfBirth',
-gdHaveKnownOfGuarantor1: '#GuarantorDetailList_1__CircumstancesHaveKnownOfGuarantor',
-gdAddress1: '#GuarantorDetailList_1__Address',
-gdCountry1: '#GuarantorDetailList_1__Country',
-gdState1: '#ddlGuarantorState1',
-gdCity1: '#GuarantorDetailList_1__City',
+  //Guarantor's Details
+  gdLastName: '#GuarantorDetailList_0__LastName',
+  gdFirstName: '#GuarantorDetailList_0__FirstName',
+  gdPlaceOfBirth: '#GuarantorDetailList_0__PlaceOfBirth',
+  gdNationality: '#GuarantorDetailList_0__Nationality',
+  gdProfession: '#GuarantorDetailList_0__Profession',
+  gdRankInProfession: '#GuarantorDetailList_0__RankInProfession',
+  gdDateOfBirth: '#GuarantorDetailList_0__DateOfBirth',
+  gdHaveKnownOfGuarantor: '#GuarantorDetailList_0__CircumstancesHaveKnownOfGuarantor',
+  gdAddress: '#GuarantorDetailList_0__Address',
+  gdCountry: '#GuarantorDetailList_0__Country',
+  gdState: '#ddlGuarantorState0',
+  gdCity: '#GuarantorDetailList_0__City',
+  gdLastName1: '#GuarantorDetailList_1__LastName',
+  gdFirstName1: '#GuarantorDetailList_1__FirstName',
+  gdPlaceOfBirth1: '#GuarantorDetailList_1__PlaceOfBirth',
+  gdNationality1: '#GuarantorDetailList_1__Nationality',
+  gdProfession1: '#GuarantorDetailList_1__Profession',
+  gdRankInProfession1: '#GuarantorDetailList_1__RankInProfession',
+  gdDateOfBirth1: '#GuarantorDetailList_1__DateOfBirth',
+  gdHaveKnownOfGuarantor1: '#GuarantorDetailList_1__CircumstancesHaveKnownOfGuarantor',
+  gdAddress1: '#GuarantorDetailList_1__Address',
+  gdCountry1: '#GuarantorDetailList_1__Country',
+  gdState1: '#ddlGuarantorState1',
+  gdCity1: '#GuarantorDetailList_1__City',
 
-//Asset Owned
-aoPropertiesWithinNigeria: '#LandedPropertiesWithinNigeria',
-aoOtherAssets: '#OtherAssets',
-aoPropertiesOutSideNigeria: '#LandedPropertiesOutSideNigeria',
-aoAssetssOutSideNigeria: '#OtherAssetssOutSideNigeria',
-aoSupportingDocument: '#DocumentList_0__Document',
+  //Asset Owned
+  aoPropertiesWithinNigeria: '#LandedPropertiesWithinNigeria',
+  aoOtherAssets: '#OtherAssets',
+  aoPropertiesOutSideNigeria: '#LandedPropertiesOutSideNigeria',
+  aoAssetssOutSideNigeria: '#OtherAssetssOutSideNigeria',
+  aoSupportingDocument: '#DocumentList_0__Document',
 
-//Reason For Application
-ReasonOfApplication: '#ReasonOfApplication',
+  //Reason For Application
+  ReasonOfApplication: '#ReasonOfApplication',
 
- //Documents Upload
- duPassportPhotograph: '#PassportPhotograph',
- duBirthCertificate: '#BirthCertificate',
- duMarriageCetificate: '#MarriageCetificate',
- duResidencePermit: '#ResidencePermit',
- du5PagesOfInternationalPassport: '#First5PagesofInternationalPassport',
- duEvidenceOfNigerianCitizenshipOfAnyParent : 'input[name="EvidenceOfNigerianCitizenshipOfAnyParent"]',
+  //Documents Upload
+  duPassportPhotograph: '#PassportPhotograph',
+  duBirthCertificate: '#BirthCertificate',
+  duMarriageCetificate: '#MarriageCetificate',
+  duResidencePermit: '#ResidencePermit',
+  du5PagesOfInternationalPassport: '#First5PagesofInternationalPassport',
+  duEvidenceOfNigerianCitizenshipOfAnyParent: 'input[name="EvidenceOfNigerianCitizenshipOfAnyParent"]',
 
- duGuarantorLetter: '#GuarantorDetailList_0__LetterFromGuarantor',
- duGuarantorPassportPhotograph: '#GuarantorDetailList_0__PassportPhotograph',
- duGuarantorDownloadedFrom0: '#GuarantorDetailList_0__GuarantorDownloadedFrom',
- duGuarantorIdCard: '#GuarantorDetailList_0__IdCard',
+  duGuarantorLetter: '#GuarantorDetailList_0__LetterFromGuarantor',
+  duGuarantorPassportPhotograph: '#GuarantorDetailList_0__PassportPhotograph',
+  duGuarantorDownloadedFrom0: '#GuarantorDetailList_0__GuarantorDownloadedFrom',
+  duGuarantorIdCard: '#GuarantorDetailList_0__IdCard',
 
- duGuarantorLetter1: '#GuarantorDetailList_1__LetterFromGuarantor',
- duGuarantorPassportPhotograph1: '#GuarantorDetailList_1__PassportPhotograph',
- duGuarantorDownloadedFrom1: '#GuarantorDetailList_1__GuarantorDownloadedFrom',
- duGuarantorIdCard1: '#GuarantorDetailList_1__IdCard',
- duNecessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
- duNecessaryDocument: '#necessaryDocumentList_0__Document',
-  
+  duGuarantorLetter1: '#GuarantorDetailList_1__LetterFromGuarantor',
+  duGuarantorPassportPhotograph1: '#GuarantorDetailList_1__PassportPhotograph',
+  duGuarantorDownloadedFrom1: '#GuarantorDetailList_1__GuarantorDownloadedFrom',
+  duGuarantorIdCard1: '#GuarantorDetailList_1__IdCard',
+  duNecessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  duNecessaryDocument: '#necessaryDocumentList_0__Document',
+
 };
 
 export const citizenshipbyinvestment = {
-//personal information 
- piDateOfBirth: '#DateOfBirth',
- piBirthCountry: '#drpPlaceOfBirthCountry',
- piBirthState: '#drpPlaceOfBirthState',
- piCityOfBirth: '#CityOfBirth',
- 
+  //personal information 
+  piDateOfBirth: '#DateOfBirth',
+  piBirthCountry: '#drpPlaceOfBirthCountry',
+  piBirthState: '#drpPlaceOfBirthState',
+  piCityOfBirth: '#CityOfBirth',
 
- piFirstArrivalToNigeria: '#DateFirstArrivalToNigeria',
- piPresentNationality: '#PresentNationality',
 
- piPreviousCountry: '#AddressList_0__Country',
- piPreviousState: '#ddlRespastState',
- piPreviousCity: '#AddressList_0__City',
- piPreviousAddress: '#AddressList_0__Address',
+  piFirstArrivalToNigeria: '#DateFirstArrivalToNigeria',
+  piPresentNationality: '#PresentNationality',
 
- piPresentState: '#drpApplicantState',
- piPresentlocalArea: 'drpLocalarea',
- piPresentCity: '#AddressList_1__City',
- piPresentAddress: '#AddressList_1__Address',
+  piPreviousCountry: '#AddressList_0__Country',
+  piPreviousState: '#ddlRespastState',
+  piPreviousCity: '#AddressList_0__City',
+  piPreviousAddress: '#AddressList_0__Address',
 
-//Professional Information 
-profOccupation: '#Occupation',
-profNameOfOrganization: '#NameOfOrganization',
-profOrganizationType: '#OrganizationType',
-profPositionHeld: '#PositionHeld',
-profAnnualIncome: '#txtMonthlySalary',
+  piPresentState: '#drpApplicantState',
+  piPresentlocalArea: 'drpLocalarea',
+  piPresentCity: '#AddressList_1__City',
+  piPresentAddress: '#AddressList_1__Address',
 
-//Document Upload
-passportPhotograph:  '#PassportPhotograph',
-internationalPassport: '#InternationalPassportArrivalStampedPage',
-documentProveforNigeria: '#DocumentaryProveOfProposedInvestmentInNigeria',
-investmentEvidence: '#EvidenceOfRequiredAmountForInvestment',
-policeReport: '#PoliceReportOfCountriesOfResidence',
-writtenApplication: '#WrittenApplicationLetterSignedAndStamped',
-memoUnderstanding: '#MemoRandumOfUnderstanding',
-medicalEvidence: '#EvidenceOfGoodMentalAndPhysicalHealth',
-affidavit: '#SwornAffidavitOfAllegianceToNigeria',
-necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
-necessaryDocument: '#necessaryDocumentList_0__Document'
+  //Professional Information 
+  profOccupation: '#Occupation',
+  profNameOfOrganization: '#NameOfOrganization',
+  profOrganizationType: '#OrganizationType',
+  profPositionHeld: '#PositionHeld',
+  profAnnualIncome: '#txtMonthlySalary',
+
+  //Document Upload
+  passportPhotograph: '#PassportPhotograph',
+  internationalPassport: '#InternationalPassportArrivalStampedPage',
+  documentProveforNigeria: '#DocumentaryProveOfProposedInvestmentInNigeria',
+  investmentEvidence: '#EvidenceOfRequiredAmountForInvestment',
+  policeReport: '#PoliceReportOfCountriesOfResidence',
+  writtenApplication: '#WrittenApplicationLetterSignedAndStamped',
+  memoUnderstanding: '#MemoRandumOfUnderstanding',
+  medicalEvidence: '#EvidenceOfGoodMentalAndPhysicalHealth',
+  affidavit: '#SwornAffidavitOfAllegianceToNigeria',
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
 
 };
+
 export const citizenshipbysis = {
 
   RelationshipwithBenefactor: '#txtRelationshipwithBenefactor',
 
   //personal information 
-   piDateOfBirth: '#DateOfBirth',
-   piBirthCountry: '#drpPlaceOfBirthCountry',
-   piBirthState: '#drpPlaceOfBirthState',
-   piCityOfBirth: '#CityOfBirth',
-   piApplicantState: '#drpApplicantState',
-   piLocalarea: '#drpLocalarea',
-   piDateOfMarriage: '#DateOfMarriage',
-   piPlaceOfMarriage: '#txtPlaceOfMarriage',
+  piDateOfBirth: '#DateOfBirth',
+  piBirthCountry: '#drpPlaceOfBirthCountry',
+  piBirthState: '#drpPlaceOfBirthState',
+  piCityOfBirth: '#CityOfBirth',
+  piApplicantState: '#drpApplicantState',
+  piLocalarea: '#drpLocalarea',
+  piDateOfMarriage: '#DateOfMarriage',
+  piPlaceOfMarriage: '#txtPlaceOfMarriage',
 
-   piPreviousAddress: '#AddressList_0__Address',
-   piPreviousCountry: '#AddressList_0__Country',
-   piPreviousState: '#ddlRespastState',
-   piPreviousCity: '#AddressList_0__City',
-   
-   piPresentAddress: '#AddressList_1__Address',
-   piPresentCountry: '#AddressList_1__Country',
-   piPresentState: '#ddlRespresentState',
-   piPresentCity: '#AddressList_1__City',
+  piPreviousAddress: '#AddressList_0__Address',
+  piPreviousCountry: '#AddressList_0__Country',
+  piPreviousState: '#ddlRespastState',
+  piPreviousCity: '#AddressList_0__City',
 
-   //Beneficiary's Information
+  piPresentAddress: '#AddressList_1__Address',
+  piPresentCountry: '#AddressList_1__Country',
+  piPresentState: '#ddlRespresentState',
+  piPresentCity: '#AddressList_1__City',
+
+  //Beneficiary's Information
   BeneficiaryLastName: '#txtBeneficiaryLastName',
   BeneficiaryFirstName: '#txtBeneficiaryFirstName',
   BeneficiaryDateOfBirth: '#BeneficiaryDateOfBirth',
@@ -445,10 +446,10 @@ export const citizenshipbysis = {
   profAnnualIncome: '#txtAnnualIncome',
 
   //Reason For Application
-ReasonOfApplication: '#ReasonOfApplication',
-  
+  ReasonOfApplication: '#ReasonOfApplication',
+
   //Document Upload
-  passportPhotograph:  '#PassportPhotograph',
+  passportPhotograph: '#PassportPhotograph',
   birthCertificate: 'BirthCertificate',
   deathCertificate: 'DeathCertificate',
   incomeEvidence: '#EvidenceOfSourceOfIncome',
@@ -461,21 +462,193 @@ ReasonOfApplication: '#ReasonOfApplication',
   localGovernmentCertificate: '#LocalGovernmentCertificateNigerianSpouseFile',
   copySignedApplication: '#CopyOfSignedApplication',
   marriagePhotograph: '#genDocFilePart-1',
-  
+
 
   necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
   necessaryDocument: '#necessaryDocumentList_0__Document'
-  
-  };
+
+};
+
+export const citizenshipbytrp = {
+
+  citizenshiptype: '#drpcitizenshipType',
+
+  //personal information 
+  piDateOfBirth: '#DateOfBirth',
+  piBirthCountry: '#drpPlaceOfBirthCountry',
+  piBirthState: '#drpPlaceOfBirthState',
+  piCityOfBirth: '#CityOfBirth',
+  piApplicantState: '#drpApplicantState',
+  piLocalarea: '#drpLocalarea',
+  piDateOfMarriage: '#DateOfMarriage',
+  piPlaceOfMarriage: '#txtPlaceOfMarriage',
+
+  piPreviousAddress: '#AddressList_0__Address',
+  piPreviousCountry: '#AddressList_0__Country',
+  piPreviousState: '#ddlRespastState',
+  piPreviousCity: '#AddressList_0__City',
+
+  piPresentAddress: '#AddressList_1__Address',
+  piPresentCountry: '#AddressList_1__Country',
+  piPresentState: '#ddlRespresentState',
+  piPresentCity: '#AddressList_1__City',
+
+  //Beneficiary's Information
+  BeneficiaryLastName: '#txtBeneficiaryLastName',
+  BeneficiaryFirstName: '#txtBeneficiaryFirstName',
+  BeneficiaryDateOfBirth: '#BeneficiaryDateOfBirth',
+  BeneficiaryPlaceOfBirthCountry: '#drpBeneficiaryPlaceOfBirthCountry',
+  BeneficiaryPlaceOfBirth: '#txtBeneficiaryPlaceOfBirth',
+  BeneficiaryAddress: '#BeneficiaryAddress',
+  BeneficiaryNationality: '#drpBeneficiaryNationality',
+  BeneficiaryEmail: '#BeneficiaryEmail',
+  BeneficiaryPhoneNumber: '#BeneficiaryPhoneNumber',
+
+
+  //Reason For Application
+  ReasonOfApplication: '#ReasonOfApplication',
+
+  //Document Upload
+
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
+
+};
+
+export const citizenshipbyroc = {
+
+
+  //personal information 
+  piDateOfBirth: '#DateOfBirth',
+  piBirthCountry: '#drpPlaceOfBirthCountry',
+  piBirthState: '#drpPlaceOfBirthState',
+  piCityOfBirth: '#CityOfBirth',
+  piinternationalPassport: '#InternationalPassportNumber',
+
+
+  piformerlastname: '#FormerLastName',
+  piformerfirstname: '#FormerFirstName',
+  piPresentNationality: '#HowPresentNationalityAcquired',
+  pidateofnigeriannatinationality: '#DateOfNigerianNationalityAcquired',
+
+
+  piPreviousAddress: '#AddressList_0__Address',
+  piPreviousCountry: '#AddressList_0__Country',
+  piPreviousState: '#ddlRespastState',
+  piPreviousCity: '#AddressList_0__City',
+
+  piPresentAddress: '#AddressList_1__Address',
+  piPresentCountry: '#AddressList_1__Country',
+  piPresentState: '#ddlRespresentState',
+  piPresentCity: '#AddressList_1__City',
+
+  //Professional Information 
+  profOccupation: '#Occupation',
+  profNameOfOrganization: '#NameOfOrganization',
+  profOrganizationType: '#OrganizationType',
+  profPositionHeld: '#PositionHeld',
+  profAnnualIncome: '#txtMonthlySalary',
+
+
+  //Parent Information
+  FatherLastName: '#FatherLastName',
+  FatherFirstName: '#FatherFirstName',
+  FatherCountryOfBirth: '#FatherCountryOfBirth',
+  FatherPlaceOfBirth: '#FatherPlaceOfBirth',
+  FatherDateOfBirth: '#FatherDateOfBirth',
+  FatherPresentNationality: '#PresentFatherNationalityId',
+  FatherPresentNationalityAcquired: '#PresentFatherNationalityHowAcquired',
+  PreviousFatherNationalityId: '#PreviousFatherNationalityId',
+  PreviousFatherNationalityAcquired: '#PreviousFatherNationalityHowAcquired',
+  PreviousFatherDateOfNationalityAcquired: '#PreviousFatherDateOfNationalityAcquired',
+
+
+  AddressList_2: '#AddressList_2__Address',
+  AddressList_2__Country: '#AddressList_2__Country',
+  Fatherstate2: '#ddlFatherstate2',
+  AddressList_2__City: '#AddressList_2__City',
+
+  AddressList_3: '#AddressList_3__Address',
+  AddressList_3__Country: '#AddressList_3__Country',
+  Fatherstate3: '#ddlFatherstate3',
+  AddressList_3__City: '#AddressList_3__City',
+
+  MotherLastName: '#MotherLastName',
+  MotherFirstName: '#MotherFirstName',
+  MotherCountryOfBirth: '#MotherCountryOfBirth',
+  MotherPlaceOfBirth: '#MotherPlaceOfBirth',
+  MotherDateOfBirth: '#MotherDateOfBirth',
+  PresentMotherNationalityId: '#PresentMotherNationalityId',
+  PresentMotherNationalityAcquired: '#PresentMotherNationalityHowAcquired',
+  PreviousMotherNationalityId: '#PreviousMotherNationalityId',
+  PreviousMotherNationalityAcquired: '#PreviousMotherNationalityHowAcquired',
+  PreviousMotherDateOfNationalityAcquired: '#PreviousMotherDateOfNationalityAcquired',
+
+  AddressList_4: '#AddressList_4__Address',
+  AddressList_4__Country: '#AddressList_4__Country',
+  Motherstate4: '#ddlFathersState4',
+  AddressList_4__City: '#AddressList_4__City',
+
+  AddressList_5: '#AddressList_5__Address',
+  AddressList_5__Country: '#AddressList_5__Country',
+  Motherstate5: '#ddlFathersState5',
+  AddressList_5__City: '#AddressList_5__City',
+
+  //Spouse Details
+  SpouseDetails: '#ddlSpouseDetails',
+  SpouseSurName: '#SpouseSurName',
+  SpouseFirstName: '#SpouseFirstName',
+  SpouseCountryOfBirth: '#SpouseCountryOfBirth',
+  SpouseDateOfBirth: '#SpouseDateOfBirth',
+
+  PresentSpouseNationalityId: '#PresentSpouseNationalityId',
+  PresentSpouseNationalityAcquired: '#PresentSpouseNationalityHowAcquired',
+  PresentSpouseDateOfNationalityAcquired: '#PresentSpouseDateOfNationalityAcquired',
+
+  PreviousSpouseNationalityId: '#PreviousSpouseNationalityId',
+  PreviousSpouseDateOfNationalityAcquired: '#PreviousSpouseDateOfNationalityAcquired',
+  PreviousSpouseNationalityAcquired: '#PreviousSpouseNationalityHowAcquired',
+
+  AddressList_6: '#AddressList_6__Address',
+  AddressList_6__Country: '#AddressList_6__Country',
+  Spousestate6: '#DDLSpousestate',
+  AddressList_6__City: '#AddressList_6__City',
+
+  //Information Of Other Relatives
+  RelativeLastName: '#RelativesList_0__LastName',
+  RelativesFirstName: '#RelativesList_0__FirstName',
+  RelativesNationalityId: '#RelativesList_0__NationalityId',
+  RelativesPlaceOfBirth: '#RelativesList_0__PlaceOfBirth',
+  RelativesRelationship: '#RelativesList_0__Relationship',
+
+  RelativesPermanentAddress: '#RelativesList_0__PermanentAddress',
+  RelativesListPermanentCountryId: '#RelativesList_0__PermanentCountryId',
+  PermanentStateId: '#PermanentStateId0',
+  RelativesPermanentCity: '#RelativesList_0__PermanentCity',
+
+  RelativesPresentAddress: '#RelativesList_0__PresentAddress',
+  RelativesPresentCountryId: '#RelativesList_0__PresentCountryId',
+  PresentStateId: '#PresentStateId0',
+  RelativesPresentCity: '#RelativesList_0__PresentCity',
+
+  //Reason For Application
+  ReasonOfApplication: '#ReasonOfApplication',
+
+  //Declaration
+  DeclarationRenounceCountry: '#DeclarationRenounceCountry',
+
+  //Document Upload
+  PassportPhotograph: '#PassportPhotograph',
+  BirthCertificate: '#BirthCertificate',
+  InternationalPassport: '#InternationalPassportDataPage',
+  SwornAffidavit: '#SwornAffidavit',
+  EvidenceCitizenshipInNewCountry: '#EvidenceCitizenshipInNewCountry',
+  LocalGovCertiOfOriginWithPassportPhotograph: '#LocalGovCertiOfOriginWithPassportPhotograph',
+  CertificateByTheSecretary: '#CertificateByTheSecretary',
 
 
 
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
 
-
-
-
-
-
-
-
-
+};

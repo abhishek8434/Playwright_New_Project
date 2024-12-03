@@ -2,7 +2,7 @@ const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
 
 
 const { locators } = require('../constants/locators');
-import { citizenshipbysis } from '../constants/locators';
+import { citizenshipbytrp } from '../constants/locators';
 
 const path = require('path');
 const fs = require('fs');
@@ -89,7 +89,7 @@ async function navigateToCitizenshipForm(page) {
     await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
     await page.getByRole('link', { name: 'Apply For Citizenship' }).click();
     await page.getByRole('heading', { name: 'Citizenship By Naturalization' }).click();
-    await page.getByRole('heading', { name: 'Application for Special Immigrant Status (SIS)' }).click();
+    await page.getByRole('heading', { name: 'Temporary Residence Permit' }).click();
     await page.getByRole('link', { name: 'Proceed' }).click();
 
 
@@ -143,8 +143,8 @@ test.describe('Apply For Citizenship', () => {
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
         await page.waitForTimeout(2000);
-        await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbysisleaveallfieldempty.png'), fullPage: true });
-        console.log('Screenshot saved as citizenshipbysisleaveallfieldempty.png');
+        await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbytrpleaveallfieldempty.png'), fullPage: true });
+        console.log('Screenshot saved as citizenshipbytrpleaveallfieldempty.png');
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
 
         await page.getByRole('link', { name: 'Ok' }).click();
@@ -156,124 +156,104 @@ test.describe('Apply For Citizenship', () => {
       //Invalid file type
       test('TC 2: Invalid file type', async () => {
         await navigateToCitizenshipForm(page);
-        await page.getByText('No', { exact: true }).click();
-        const choice = Math.random() < 0.5 ? 'Yes' : 'No';
 
-        if (choice === 'Yes') {
-            await page.getByLabel('Yes').check();
-            console.log('Yes')
-        } else {
-            await page.getByText('No', { exact: true }).click();
-            await page.type(citizenshipbysis.RelationshipwithBenefactor, 'Student');
-            console.log('No')
-        }
+        // Define the specific options you want to randomly select from
+        const options = ['1', '2', '3'];
 
-        //Personal Information
+        // Pick a random option from the array
+        const randomOption = options[Math.floor(Math.random() * options.length)];
+
+        // Select the randomly chosen option
+        await page.locator(citizenshipbytrp.citizenshiptype).selectOption(randomOption);
+
+        console.log(`Randomly selected option: ${randomOption}`);
+
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
         // Check if some content within the dropdown is visible, e.g. Date of Birth field
-        const isDropdownOpened = await page.locator(citizenshipbysis.piDateOfBirth).isVisible();
+        const isDropdownOpened = await page.locator(citizenshipbytrp.piDateOfBirth).isVisible();
         // If the content is not visible (dropdown did not open), click again
         if (!isDropdownOpened) {
             console.log('Dropdown not opened, clicking again...');
             await page.getByRole('heading', { name: 'Personal Information' }).click();
         }
-        await page.locator(citizenshipbysis.piDateOfBirth).click();
+        await page.locator(citizenshipbytrp.piDateOfBirth).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1980');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-        await page.selectOption(citizenshipbysis.piBirthCountry, '161');
-        await page.click(citizenshipbysis.piBirthCountry);
+        await page.selectOption(citizenshipbytrp.piBirthCountry, '161');
+        await page.click(citizenshipbytrp.piBirthCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piBirthState, '4');
-        await page.type(citizenshipbysis.piCityOfBirth, 'Bauchi');
+        await page.selectOption(citizenshipbytrp.piBirthState, '4');
+        await page.type(citizenshipbytrp.piCityOfBirth, 'Bauchi');
         await page.locator('#drpApplicantState').selectOption('24');
-        await page.click(citizenshipbysis.piApplicantState);
+        await page.click(citizenshipbytrp.piApplicantState);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piLocalarea, '1188');
-        await page.locator(citizenshipbysis.piDateOfMarriage).click();
+        await page.selectOption(citizenshipbytrp.piLocalarea, '1188');
+        await page.locator(citizenshipbytrp.piDateOfMarriage).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2018');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-        await page.type(citizenshipbysis.piPlaceOfMarriage, 'Bauchi');
-        await page.type(citizenshipbysis.piPreviousAddress, 'Cross River');
-        await page.selectOption(citizenshipbysis.piPreviousCountry, '161');
-        await page.click(citizenshipbysis.piPreviousCountry);
+        await page.type(citizenshipbytrp.piPlaceOfMarriage, 'Bauchi');
+        await page.type(citizenshipbytrp.piPreviousAddress, 'Cross River');
+        await page.selectOption(citizenshipbytrp.piPreviousCountry, '161');
+        await page.click(citizenshipbytrp.piPreviousCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piPreviousState, '2');
-        await page.type(citizenshipbysis.piPreviousCity, 'Cross River');
-        await page.type(citizenshipbysis.piPresentAddress, 'Cross River');
-        await page.selectOption(citizenshipbysis.piPresentCountry, '161');
-        await page.click(citizenshipbysis.piPresentCountry);
+        await page.selectOption(citizenshipbytrp.piPreviousState, '2');
+        await page.type(citizenshipbytrp.piPreviousCity, 'Cross River');
+        await page.type(citizenshipbytrp.piPresentAddress, 'Cross River');
+        await page.selectOption(citizenshipbytrp.piPresentCountry, '161');
+        await page.click(citizenshipbytrp.piPresentCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piPresentState, '2');
-        await page.type(citizenshipbysis.piPresentCity, 'Cross River');
+        await page.selectOption(citizenshipbytrp.piPresentState, '2');
+        await page.type(citizenshipbytrp.piPresentCity, 'Cross River');
 
         //Beneficiary Information
-        await page.getByRole('heading', { name: 'Beneficiary\'s Information' }).click();
+        await page.getByRole('heading', { name: 'Beneficiary Information' }).click();
         await page.waitForTimeout(2000);
         // Check if some content within the dropdown is visible, e.g. Date of Birth field
-        const isDropdownOpened1 = await page.locator(citizenshipbysis.BeneficiaryDateOfBirth).isVisible();
+        const isDropdownOpened1 = await page.locator(citizenshipbytrp.BeneficiaryDateOfBirth).isVisible();
         // If the content is not visible (dropdown did not open), click again
         if (!isDropdownOpened1) {
             console.log('Dropdown not opened, clicking again...');
             await page.getByRole('heading', { name: 'Beneficiary\'s Information' }).click();
         }
-        await page.type(citizenshipbysis.BeneficiaryLastName, formData.BeneficiarylastName);
-        await page.type(citizenshipbysis.BeneficiaryFirstName, formData.BeneficiaryfirstName);
-        await page.locator(citizenshipbysis.BeneficiaryDateOfBirth).click();
+        await page.type(citizenshipbytrp.BeneficiaryLastName, formData.BeneficiarylastName);
+        await page.type(citizenshipbytrp.BeneficiaryFirstName, formData.BeneficiaryfirstName);
+        await page.locator(citizenshipbytrp.BeneficiaryDateOfBirth).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1998');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-        await page.selectOption(citizenshipbysis.BeneficiaryPlaceOfBirthCountry, '161');
-        await page.type(citizenshipbysis.BeneficiaryPlaceOfBirth, 'Cross River');
-        await page.type(citizenshipbysis.BeneficiaryAddress, 'Cross River');
-        await page.selectOption(citizenshipbysis.BeneficiaryNationality, '161');
-        await page.type(citizenshipbysis.BeneficiaryEmail, formData.email);
-        await page.type(citizenshipbysis.BeneficiaryPhoneNumber, formData.phone);
-        await page.type(citizenshipbysis.BeneficiaryPassportNumber, '15335345345435');
-
-        //Professional Information
-        await page.getByRole('heading', { name: 'Professional Information' }).click();
-        await page.waitForTimeout(2000)
-        const isDropdownOpened2 = await page.locator(citizenshipbysis.profOccupation).isVisible();
-        // If the content is not visible (dropdown did not open), click again
-        if (!isDropdownOpened2) {
-            console.log('Dropdown not opened, clicking again...');
-            await page.getByRole('heading', { name: 'Professional Information' }).click();
-        }
-        await page.type(citizenshipbysis.profOccupation, 'Student');
-        await page.type(citizenshipbysis.profNameOfOrganization, 'Bauchi Univerisity');
-        await page.type(citizenshipbysis.profOrganizationType, 'Educational');
-        await page.type(citizenshipbysis.profPositionHeld, 'Student');
-        await page.locator('#DivProfessionalInformation').getByRole('button').click();
-        await page.getByRole('link', { name: 'Nigerian naira' }).click();
-        await page.type(citizenshipbysis.profAnnualIncome, '98765214');
+        await page.selectOption(citizenshipbytrp.BeneficiaryPlaceOfBirthCountry, '161');
+        await page.type(citizenshipbytrp.BeneficiaryPlaceOfBirth, 'Cross River');
+        await page.type(citizenshipbytrp.BeneficiaryAddress, 'Cross River');
+        await page.selectOption(citizenshipbytrp.BeneficiaryNationality, '161');
+        await page.type(citizenshipbytrp.BeneficiaryEmail, formData.email);
+        await page.type(citizenshipbytrp.BeneficiaryPhoneNumber, formData.phone);
+        
 
         //Reason for application
         await page.getByRole('heading', { name: 'Reason For Application' }).click();
-        await page.type(citizenshipbysis.ReasonOfApplication, '98765214');
-
-        //Document Upload
-        await page.getByRole("heading", { name: "Documents Upload" }).click();
+        await page.type(citizenshipbytrp.ReasonOfApplication, '98765214');
+        await page.getByRole('heading', { name: 'Documents Upload' }).click();
         await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: 'Upload Death Certificate' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload International' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Evidence Of Source' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Tax Clearance' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Resident Permit/' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');       
-        await page.locator('li').filter({ hasText: '* Upload Applicant’s Means of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Marriage Certificate' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of First 5 Pages Of Husband International Passport' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Marriage Certificate Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Formal application' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Local Government' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Local Government Certificate of origin of the' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Attestation of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Authentic report' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator(citizenshipbysis.marriagePhotograph).setInputFiles('invalid-file.txt');
-        await page.type(citizenshipbysis.necessaryDocumentName, 'Student');
-        await page.locator(citizenshipbysis.necessaryDocument).setInputFiles('invalid-file.txt');
-        await page.waitForTimeout(2000);
-        
-   
+        await page.locator('input[name="DocumentList\\[0\\]\\.Document"]').setInputFiles('invalid-file.txt');
+        await page.locator(citizenshipbytrp.necessaryDocumentName).fill('docu');
+        await page.locator(citizenshipbytrp.necessaryDocument).setInputFiles('invalid-file.txt');
+        await page.waitForTimeout(2000)
 
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
@@ -294,131 +274,115 @@ test.describe('Apply For Citizenship', () => {
 
         console.log(`The sentence "${validationMessage}" appears ${sentenceCount} times.`);
         // Take a full-page screenshot
-        await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbysis_invalid_file.png'), fullPage: true });
+        await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbytrp_invalid_file.png'), fullPage: true });
 
-        console.log('Screenshot saved as citizenshipbysis_invalid_file.png');
+        console.log('Screenshot saved as citizenshipbytrp_invalid_file.png');
 
 
     });
 
+
     test('TC 3: all mandatory field ', async () => {
         await navigateToCitizenshipForm(page);
-        await page.getByText('No', { exact: true }).click();
-        const choice = Math.random() < 0.5 ? 'Yes' : 'No';
 
-        if (choice === 'Yes') {
-            await page.getByLabel('Yes').check();
-            console.log('Yes')
-        } else {
-            await page.getByText('No', { exact: true }).click();
-            await page.type(citizenshipbysis.RelationshipwithBenefactor, 'Student');
-            console.log('No')
-        }
+        // Define the specific options you want to randomly select from
+        const options = ['1', '2', '3'];
 
-        //Personal Information
+        // Pick a random option from the array
+        const randomOption = options[Math.floor(Math.random() * options.length)];
+
+        // Select the randomly chosen option
+        await page.locator(citizenshipbytrp.citizenshiptype).selectOption(randomOption);
+
+        console.log(`Randomly selected option: ${randomOption}`);
+
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
         // Check if some content within the dropdown is visible, e.g. Date of Birth field
-        const isDropdownOpened = await page.locator(citizenshipbysis.piDateOfBirth).isVisible();
+        const isDropdownOpened = await page.locator(citizenshipbytrp.piDateOfBirth).isVisible();
         // If the content is not visible (dropdown did not open), click again
         if (!isDropdownOpened) {
             console.log('Dropdown not opened, clicking again...');
             await page.getByRole('heading', { name: 'Personal Information' }).click();
         }
-        await page.locator(citizenshipbysis.piDateOfBirth).click();
+        await page.locator(citizenshipbytrp.piDateOfBirth).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1980');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-        await page.selectOption(citizenshipbysis.piBirthCountry, '161');
-        await page.click(citizenshipbysis.piBirthCountry);
+        await page.selectOption(citizenshipbytrp.piBirthCountry, '161');
+        await page.click(citizenshipbytrp.piBirthCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piBirthState, '4');
-        await page.type(citizenshipbysis.piCityOfBirth, 'Bauchi');
+        await page.selectOption(citizenshipbytrp.piBirthState, '4');
+        await page.type(citizenshipbytrp.piCityOfBirth, 'Bauchi');
         await page.locator('#drpApplicantState').selectOption('24');
-        await page.click(citizenshipbysis.piApplicantState);
+        await page.click(citizenshipbytrp.piApplicantState);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piLocalarea, '1188');
-        await page.locator(citizenshipbysis.piDateOfMarriage).click();
+        await page.selectOption(citizenshipbytrp.piLocalarea, '1188');
+        await page.locator(citizenshipbytrp.piDateOfMarriage).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2018');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-        await page.type(citizenshipbysis.piPlaceOfMarriage, 'Bauchi');
-        await page.type(citizenshipbysis.piPreviousAddress, 'Cross River');
-        await page.selectOption(citizenshipbysis.piPreviousCountry, '161');
-        await page.click(citizenshipbysis.piPreviousCountry);
+        await page.type(citizenshipbytrp.piPlaceOfMarriage, 'Bauchi');
+        await page.type(citizenshipbytrp.piPreviousAddress, 'Cross River');
+        await page.selectOption(citizenshipbytrp.piPreviousCountry, '161');
+        await page.click(citizenshipbytrp.piPreviousCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piPreviousState, '2');
-        await page.type(citizenshipbysis.piPreviousCity, 'Cross River');
-        await page.type(citizenshipbysis.piPresentAddress, 'Cross River');
-        await page.selectOption(citizenshipbysis.piPresentCountry, '161');
-        await page.click(citizenshipbysis.piPresentCountry);
+        await page.selectOption(citizenshipbytrp.piPreviousState, '2');
+        await page.type(citizenshipbytrp.piPreviousCity, 'Cross River');
+        await page.type(citizenshipbytrp.piPresentAddress, 'Cross River');
+        await page.selectOption(citizenshipbytrp.piPresentCountry, '161');
+        await page.click(citizenshipbytrp.piPresentCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbysis.piPresentState, '2');
-        await page.type(citizenshipbysis.piPresentCity, 'Cross River');
+        await page.selectOption(citizenshipbytrp.piPresentState, '2');
+        await page.type(citizenshipbytrp.piPresentCity, 'Cross River');
 
         //Beneficiary Information
-        await page.getByRole('heading', { name: 'Beneficiary\'s Information' }).click();
+        await page.getByRole('heading', { name: 'Beneficiary Information' }).click();
         await page.waitForTimeout(2000);
         // Check if some content within the dropdown is visible, e.g. Date of Birth field
-        const isDropdownOpened1 = await page.locator(citizenshipbysis.BeneficiaryDateOfBirth).isVisible();
+        const isDropdownOpened1 = await page.locator(citizenshipbytrp.BeneficiaryDateOfBirth).isVisible();
         // If the content is not visible (dropdown did not open), click again
         if (!isDropdownOpened1) {
             console.log('Dropdown not opened, clicking again...');
             await page.getByRole('heading', { name: 'Beneficiary\'s Information' }).click();
         }
-        await page.type(citizenshipbysis.BeneficiaryLastName, formData.BeneficiarylastName);
-        await page.type(citizenshipbysis.BeneficiaryFirstName, formData.BeneficiaryfirstName);
-        await page.locator(citizenshipbysis.BeneficiaryDateOfBirth).click();
+        await page.type(citizenshipbytrp.BeneficiaryLastName, formData.BeneficiarylastName);
+        await page.type(citizenshipbytrp.BeneficiaryFirstName, formData.BeneficiaryfirstName);
+        await page.locator(citizenshipbytrp.BeneficiaryDateOfBirth).click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1998');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '6', exact: true }).click();
-        await page.selectOption(citizenshipbysis.BeneficiaryPlaceOfBirthCountry, '161');
-        await page.type(citizenshipbysis.BeneficiaryPlaceOfBirth, 'Cross River');
-        await page.type(citizenshipbysis.BeneficiaryAddress, 'Cross River');
-        await page.selectOption(citizenshipbysis.BeneficiaryNationality, '161');
-        await page.type(citizenshipbysis.BeneficiaryEmail, formData.email);
-        await page.type(citizenshipbysis.BeneficiaryPhoneNumber, formData.phone);
-        await page.type(citizenshipbysis.BeneficiaryPassportNumber, '15335345345435');
-
-        //Professional Information
-        await page.getByRole('heading', { name: 'Professional Information' }).click();
-        await page.waitForTimeout(2000)
-        const isDropdownOpened2 = await page.locator(citizenshipbysis.profOccupation).isVisible();
-        // If the content is not visible (dropdown did not open), click again
-        if (!isDropdownOpened2) {
-            console.log('Dropdown not opened, clicking again...');
-            await page.getByRole('heading', { name: 'Professional Information' }).click();
-        }
-        await page.type(citizenshipbysis.profOccupation, 'Student');
-        await page.type(citizenshipbysis.profNameOfOrganization, 'Bauchi Univerisity');
-        await page.type(citizenshipbysis.profOrganizationType, 'Educational');
-        await page.type(citizenshipbysis.profPositionHeld, 'Student');
-        await page.locator('#DivProfessionalInformation').getByRole('button').click();
-        await page.getByRole('link', { name: 'Nigerian naira' }).click();
-        await page.type(citizenshipbysis.profAnnualIncome, '98765214');
+        await page.selectOption(citizenshipbytrp.BeneficiaryPlaceOfBirthCountry, '161');
+        await page.type(citizenshipbytrp.BeneficiaryPlaceOfBirth, 'Cross River');
+        await page.type(citizenshipbytrp.BeneficiaryAddress, 'Cross River');
+        await page.selectOption(citizenshipbytrp.BeneficiaryNationality, '161');
+        await page.type(citizenshipbytrp.BeneficiaryEmail, formData.email);
+        await page.type(citizenshipbytrp.BeneficiaryPhoneNumber, formData.phone);
+        
 
         //Reason for application
         await page.getByRole('heading', { name: 'Reason For Application' }).click();
-        await page.type(citizenshipbysis.ReasonOfApplication, '98765214');
-
-        //Document Upload
-        await page.getByRole("heading", { name: "Documents Upload" }).click();
+        await page.type(citizenshipbytrp.ReasonOfApplication, '98765214');
+        await page.getByRole('heading', { name: 'Documents Upload' }).click();
         await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
         await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Death Certificate' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload International' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
         await page.locator('li').filter({ hasText: '* Upload Evidence Of Source' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
         await page.locator('li').filter({ hasText: '* Upload Tax Clearance' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
         await page.locator('li').filter({ hasText: '* Upload Resident Permit/' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');       
-        await page.locator('li').filter({ hasText: '* Upload Applicant’s Means of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Marriage Certificate' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of First 5 Pages Of Husband International Passport' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Marriage Certificate Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
         await page.locator('li').filter({ hasText: '* Upload Formal application' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Local Government' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Local Government Certificate of origin of the' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Attestation of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Authentic report' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
         await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbysis.marriagePhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.type(citizenshipbysis.necessaryDocumentName, 'Student');
-        await page.locator(citizenshipbysis.necessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.waitForTimeout(2000);
+        await page.locator('input[name="DocumentList\\[0\\]\\.Document"]').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbytrp.necessaryDocumentName).fill('docu');
+        await page.locator(citizenshipbytrp.necessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.waitForTimeout(2000)
+
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('You have successfully').isVisible();
@@ -428,12 +392,11 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         await page.getByRole('link', { name: 'Submit' }).click();
-   
+
+
 
     });
 
-
-
-
-
 });
+
+
