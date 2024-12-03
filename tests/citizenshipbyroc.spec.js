@@ -688,14 +688,14 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbyroc.AddressList_5__City, 'Cross River');
 
 
-        //Maritial Status         
+        //Marital Status         
 
         await page.getByRole('heading', { name: 'Marital Status' }).click();
 
-        const option = ['1', '2', '3', '4', '5']; // Ensure the array is correctly named
+        const option = ['1', '2', '3', '4', '5']; 
 
         // Pick a random option from the array
-        const randomOption5 = option[Math.floor(Math.random() * option.length)]; // Use the correct array name
+        const randomOption5 = option[Math.floor(Math.random() * option.length)]; 
 
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.SpouseDetails).selectOption(randomOption5);
