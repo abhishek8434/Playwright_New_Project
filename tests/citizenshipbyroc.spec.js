@@ -501,7 +501,7 @@ test.describe('Apply For Citizenship', () => {
     });
 
 
-    test.only('TC 3: all mandatory field ', async () => {
+    test('TC 3: all mandatory field ', async () => {
         await navigateToCitizenshipForm(page);
 
         await page.getByRole('heading', { name: 'Personal Information' }).click();
