@@ -652,3 +652,21 @@ export const citizenshipbyroc = {
   necessaryDocument: '#necessaryDocumentList_0__Document'
 
 };
+
+
+export const citizenshipbachelorhood = {
+
+  SpouseDetails : '#ddlSpouseDetails',
+  ForeignAddress: '#ForeignAddress',
+  PlaceOfBirthCountry: '#drpPlaceOfBirthCountry',
+  PlaceOfBirthState: '#drpPlaceOfBirthState',
+  ForeignCity: '#ForeignCity',
+  ReasonOfApplication: '#ReasonOfApplication',
+  ForeignSpouseEmail: '#ForeignSpouseEmail',
+  ForeignSpousePhoneNumber: '#ForeignSpousePhoneNumber',
+
+  //Document Upload
+
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
+};
