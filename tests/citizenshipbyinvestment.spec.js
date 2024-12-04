@@ -345,17 +345,17 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole("heading", { name: "Documents Upload" }).click();
 
-        await page.locator(citizenshipbyinvestment.passportPhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.writtenApplication).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.internationalPassport).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.memoUnderstanding).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.documentProveforNigeria).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.medicalEvidence).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.investmentEvidence).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.affidavit).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyinvestment.policeReport).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbyinvestment.passportPhotograph).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.writtenApplication).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.internationalPassport).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.memoUnderstanding).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.documentProveforNigeria).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.medicalEvidence).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.investmentEvidence).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.affidavit).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyinvestment.policeReport).setInputFiles('Dummy_PDF.pdf');
         await page.type(citizenshipbyinvestment.necessaryDocumentName, 'Student');
-        await page.locator(citizenshipbyinvestment.necessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbyinvestment.necessaryDocument).setInputFiles('Dummy_PDF.pdf');
 
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();

@@ -220,7 +220,7 @@ test.describe('Marriage Form Submission Tests', () => {
 
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./invalid-file.txt');
     await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./invalid-file.txt');
-    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
+    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
     await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './invalid-file.txt');
 
 
@@ -266,12 +266,12 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByRole('link', { name: '15' }).click();
     await page.type(HusbandLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(HusbandLocators.status, '1');
-    await page.setInputFiles(HusbandLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(HusbandLocators.country, '30');
     await page.selectOption(HusbandLocators.stateOfOrigin, '485');
     await page.selectOption(HusbandLocators.identityType, '1');
     await page.type(HusbandLocators.identityNumber, '1234567890', { delay: 100 });
-    await page.setInputFiles(HusbandLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(HusbandLocators.occupation, 'Doctor'), { delay: 100 };
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
@@ -279,8 +279,8 @@ test.describe('Marriage Form Submission Tests', () => {
 
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./download.png');
-    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
 
     // Fill the form with valid data for wife 
     await page.getByRole('heading', { name: 'Wife Details' }).click();
@@ -312,12 +312,12 @@ test.describe('Marriage Form Submission Tests', () => {
 
     await page.type(WifeLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(WifeLocators.status, '1');
-    await page.setInputFiles(WifeLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(WifeLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(WifeLocators.country, '30');
     await page.selectOption(WifeLocators.stateOfOrigin, '485');
     await page.selectOption(WifeLocators.identityType, '1');
     await page.type(WifeLocators.identityNumber, '1215454520', { delay: 100 });
-    await page.setInputFiles(WifeLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(WifeLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(WifeLocators.address, 'Brazil', { delay: 100 });
     await page.type(WifeLocators.phone, phone, { delay: 100 });
     await page.type(WifeLocators.email, email, { delay: 100 });
@@ -328,9 +328,9 @@ test.describe('Marriage Form Submission Tests', () => {
 
 
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./download.png');
-    await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Dummy_PDF.pdf');
+    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Dummy_PDF.pdf');
 
    
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-overlimit-text.png'), fullPage: true });
@@ -365,12 +365,12 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByRole('link', { name: '15' }).click();
     await page.type(HusbandLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(HusbandLocators.status, '1');
-    await page.setInputFiles(HusbandLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(HusbandLocators.country, '30');
     await page.selectOption(HusbandLocators.stateOfOrigin, '485');
     await page.selectOption(HusbandLocators.identityType, '1');
     await page.type(HusbandLocators.identityNumber, '1234567890', { delay: 100 });
-    await page.setInputFiles(HusbandLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(HusbandLocators.occupation, 'Doctor'), { delay: 100 };
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
@@ -378,8 +378,8 @@ test.describe('Marriage Form Submission Tests', () => {
   
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./download.png');
-    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
 
     // Fill the form with valid data for wife 
     await page.getByRole('heading', { name: 'Wife Details' }).click();
@@ -394,12 +394,12 @@ test.describe('Marriage Form Submission Tests', () => {
     
     await page.type(WifeLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(WifeLocators.status, '1');
-    await page.setInputFiles(WifeLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(WifeLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(WifeLocators.country, '30');
     await page.selectOption(WifeLocators.stateOfOrigin, '485');
     await page.selectOption(WifeLocators.identityType, '1');
     await page.type(WifeLocators.identityNumber, '1215454520', { delay: 100 });
-    await page.setInputFiles(WifeLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(WifeLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(WifeLocators.address, 'Brazil', { delay: 100 });
     await page.type(WifeLocators.phone, phone, { delay: 100 });
     await page.type(WifeLocators.email, formData.email1, { delay: 100 });
@@ -410,9 +410,9 @@ test.describe('Marriage Form Submission Tests', () => {
     
 
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./download.png');
-    await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Dummy_PDF.pdf');
+    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Dummy_PDF.pdf');
 
     await page.getByRole('link', { name: 'Proceed' }).click();
 
@@ -454,12 +454,12 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByRole('link', { name: '15' }).click();
     await page.type(HusbandLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(HusbandLocators.status, '1');
-    await page.setInputFiles(HusbandLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(HusbandLocators.country, '30');
     await page.selectOption(HusbandLocators.stateOfOrigin, '485');
     await page.selectOption(HusbandLocators.identityType, '1');
     await page.type(HusbandLocators.identityNumber, '1234567890', { delay: 100 });
-    await page.setInputFiles(HusbandLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(HusbandLocators.occupation, 'Doctor'), { delay: 100 };
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
@@ -467,8 +467,8 @@ test.describe('Marriage Form Submission Tests', () => {
   
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./download.png');
-    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
 
     
 
@@ -520,12 +520,12 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByRole('link', { name: '15' }).click();
     await page.type(HusbandLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(HusbandLocators.status, '1');
-    await page.setInputFiles(HusbandLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(HusbandLocators.country, '30');
     await page.selectOption(HusbandLocators.stateOfOrigin, '485');
     await page.selectOption(HusbandLocators.identityType, '1');
     await page.type(HusbandLocators.identityNumber, '1234567890', { delay: 100 });
-    await page.setInputFiles(HusbandLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(HusbandLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(HusbandLocators.occupation, 'Doctor'), { delay: 100 };
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
@@ -533,8 +533,8 @@ test.describe('Marriage Form Submission Tests', () => {
   
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./download.png');
-    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
 
     // Fill the form with valid data for wife 
     await page.getByRole('heading', { name: 'Wife Details' }).click();
@@ -549,12 +549,12 @@ test.describe('Marriage Form Submission Tests', () => {
     
     await page.type(WifeLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(WifeLocators.status, '1');
-    await page.setInputFiles(WifeLocators.affidavitUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(WifeLocators.affidavitUpload, './Dummy_PDF.pdf');
     await page.selectOption(WifeLocators.country, '30');
     await page.selectOption(WifeLocators.stateOfOrigin, '485');
     await page.selectOption(WifeLocators.identityType, '1');
     await page.type(WifeLocators.identityNumber, '1215454520', { delay: 100 });
-    await page.setInputFiles(WifeLocators.idUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.setInputFiles(WifeLocators.idUpload, './Dummy_PDF.pdf');
     await page.type(WifeLocators.address, 'Brazil', { delay: 100 });
     await page.type(WifeLocators.phone, phone, { delay: 100 });
     await page.type(WifeLocators.email, email, { delay: 100 });
@@ -565,9 +565,9 @@ test.describe('Marriage Form Submission Tests', () => {
     
 
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./download.png');
-    await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Get_Started_With_Smallpdf-output.pdf');
-    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Get_Started_With_Smallpdf-output.pdf');
+    await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Dummy_PDF.pdf');
+    //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
+    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Dummy_PDF.pdf');
 
     // Review and Submit
     await page.getByRole('link', { name: 'Proceed' }).click();

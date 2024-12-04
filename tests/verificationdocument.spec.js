@@ -148,10 +148,10 @@ test.describe('Application For Verification Of Document', () => {
     test('TC 2 : Invalid marriage certificate number', async () => {
         await navigateToMarriageForm(page);
 
-        await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
         await page.selectOption(DocumentVerification.certificateType, '1');
-        await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
         await page.type(DocumentVerification.marriageCertificateno, '1234567', { delay: 100 });
 
         await page.locator('label').filter({ hasText: 'Yes' }).click();
@@ -257,7 +257,7 @@ test.describe('Application For Verification Of Document', () => {
     test('TC 4: uccessful marriage application submission with incorrect certificate number', async () => {
         await navigateToMarriageForm(page);
 
-        await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
 
         // Generate a random number between 1 and 3
@@ -266,13 +266,13 @@ test.describe('Application For Verification Of Document', () => {
         if (randomCondition === 1) {
             // First condition
             await page.selectOption(DocumentVerification.certificateType, '1');
-            await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+            await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.type(DocumentVerification.marriageCertificateno, '569876512', { delay: 100 });
             
         } else if (randomCondition === 2) {
             // Second condition
             await page.selectOption(DocumentVerification.certificateType, '2');
-            await page.locator('#divSpinsterhoodCertificate').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+            await page.locator('#divSpinsterhoodCertificate').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
 
@@ -283,7 +283,7 @@ test.describe('Application For Verification Of Document', () => {
         } else if (randomCondition === 3) {
             // Third condition
             await page.selectOption(DocumentVerification.certificateType, '3');
-            await page.locator('#divBachelorhoodCertificate').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+            await page.locator('#divBachelorhoodCertificate').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
 
@@ -301,7 +301,7 @@ test.describe('Application For Verification Of Document', () => {
      test('TC 5: Successful marriage application submission with correct certificate number', async () => {
         await navigateToMarriageForm(page);
 
-        await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
 
         // Generate a random number between 1 and 3
@@ -310,7 +310,7 @@ test.describe('Application For Verification Of Document', () => {
         if (randomCondition === 1) {
             // First condition
             await page.selectOption(DocumentVerification.certificateType, '1');
-            await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+            await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.type(DocumentVerification.marriageCertificateno, '5698765', { delay: 100 });
             await page.locator('label').filter({ hasText: 'Yes' }).click();
             await page.getByText('CancelHelp').click();
@@ -352,7 +352,7 @@ test.describe('Application For Verification Of Document', () => {
         } else if (randomCondition === 2) {
             // Second condition
             await page.selectOption(DocumentVerification.certificateType, '2');
-            await page.locator('#divSpinsterhoodCertificate').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+            await page.locator('#divSpinsterhoodCertificate').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
 
@@ -363,7 +363,7 @@ test.describe('Application For Verification Of Document', () => {
         } else if (randomCondition === 3) {
             // Third condition
             await page.selectOption(DocumentVerification.certificateType, '3');
-            await page.locator('#divBachelorhoodCertificate').getByRole('textbox').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+            await page.locator('#divBachelorhoodCertificate').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
 

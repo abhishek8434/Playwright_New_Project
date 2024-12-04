@@ -2,7 +2,7 @@ const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
 
 
 const { locators } = require('../constants/locators');
-import { citizenshipbachelorhood } from '../constants/locators';
+import { citizenshipattesation } from '../constants/locators';
 
 const path = require('path');
 const fs = require('fs');
@@ -87,7 +87,7 @@ async function navigateToCitizenshipForm(page) {
     // Proceed to marriage application form
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
-    await page.getByRole('link', { name: 'Apply For Attestation Of Bachelorhood/Spinsterhood' }).click();
+    await page.getByRole('link', { name: 'Apply For Attestation Of Marital Status' }).click();
 
 }
 
@@ -161,15 +161,15 @@ test.describe('Apply For Citizenship', () => {
         const randomOption = option[Math.floor(Math.random() * option.length)];
 
         // Select the randomly chosen option
-        await page.locator(citizenshipbachelorhood.SpouseDetails).selectOption(randomOption);
+        await page.locator(citizenshipattesation.SpouseDetails).selectOption(randomOption);
 
         console.log(`Randomly selected option: ${randomOption}`);
 
-        await page.type(citizenshipbachelorhood.ForeignAddress, 'Test Address');
-        await page.selectOption(citizenshipbachelorhood.PlaceOfBirthCountry, '161');
-        await page.click(citizenshipbachelorhood.PlaceOfBirthCountry);
+        await page.type(citizenshipattesation.ForeignAddress, 'Test Address');
+        await page.selectOption(citizenshipattesation.PlaceOfBirthCountry, '161');
+        await page.click(citizenshipattesation.PlaceOfBirthCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbachelorhood.PlaceOfBirthState, '24')
+        await page.selectOption(citizenshipattesation.PlaceOfBirthState, '24')
 
         await page.locator('#ForeignCity').click();
         await page.locator('#ForeignCity').fill('test');
@@ -179,12 +179,12 @@ test.describe('Apply For Citizenship', () => {
 
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
-        await page.type(citizenshipbachelorhood.ReasonOfApplication, 'Reason');
+        await page.type(citizenshipattesation.ReasonOfApplication, 'Reason');
 
 
         await page.getByRole('heading', { name: 'foreign spouse information' }).click();
-        await page.type(citizenshipbachelorhood.ForeignSpouseEmail, formData.email);
-        await page.type(citizenshipbachelorhood.ForeignSpousePhoneNumber, phone);
+        await page.type(citizenshipattesation.ForeignSpouseEmail, formData.email);
+        await page.type(citizenshipattesation.ForeignSpousePhoneNumber, phone);
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
         await page.locator('li').filter({ hasText: '* Upload Formal Application' }).getByRole('textbox').setInputFiles('invalid-file.txt');
@@ -201,9 +201,9 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('li').filter({ hasText: '* Upload Full length photo of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Marriage document of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Proof of Address eg' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.type(citizenshipbachelorhood.necessaryDocumentName, 'Test');
-        await page.setInputFiles(citizenshipbachelorhood.necessaryDocument, 'invalid-file.txt');
-        
+        await page.type(citizenshipattesation.necessaryDocumentName, 'Test');
+        await page.setInputFiles(citizenshipattesation.necessaryDocument, 'invalid-file.txt');
+
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('Please complete all the required field(s).').isVisible();
@@ -231,24 +231,24 @@ test.describe('Apply For Citizenship', () => {
     });
 
 
-    test('TC 3: all mandatory field ', async () => {
+    test.only('TC 3: all mandatory field ', async () => {
         await navigateToCitizenshipForm(page);
 
-        const option = ['1', '2'];
+        const option = ['3', '4', '5'];
 
         // Pick a random option from the array
         const randomOption = option[Math.floor(Math.random() * option.length)];
 
         // Select the randomly chosen option
-        await page.locator(citizenshipbachelorhood.SpouseDetails).selectOption(randomOption);
+        await page.locator(citizenshipattesation.MaritalStatus).selectOption(randomOption);
 
         console.log(`Randomly selected option: ${randomOption}`);
 
-        await page.type(citizenshipbachelorhood.ForeignAddress, 'Test Address');
-        await page.selectOption(citizenshipbachelorhood.PlaceOfBirthCountry, '161');
-        await page.click(citizenshipbachelorhood.PlaceOfBirthCountry);
+        await page.type(citizenshipattesation.ForeignAddress, 'Test Address');
+        await page.selectOption(citizenshipattesation.PlaceOfBirthCountry, '161');
+        await page.click(citizenshipattesation.PlaceOfBirthCountry);
         await page.keyboard.press('Escape');
-        await page.selectOption(citizenshipbachelorhood.PlaceOfBirthState, '24')
+        await page.selectOption(citizenshipattesation.PlaceOfBirthState, '24')
 
         await page.locator('#ForeignCity').click();
         await page.locator('#ForeignCity').fill('test');
@@ -258,30 +258,35 @@ test.describe('Apply For Citizenship', () => {
 
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
-        await page.type(citizenshipbachelorhood.ReasonOfApplication, 'Reason');
+        await page.type(citizenshipattesation.ReasonOfApplication, 'Reason');
 
 
         await page.getByRole('heading', { name: 'foreign spouse information' }).click();
-        await page.type(citizenshipbachelorhood.ForeignSpouseEmail, formData.email);
-        await page.type(citizenshipbachelorhood.ForeignSpousePhoneNumber, phone);
+        await page.type(citizenshipattesation.ForeignSpouseEmail, formData.email);
+        await page.type(citizenshipattesation.ForeignSpousePhoneNumber, phone);
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator('li').filter({ hasText: '* Upload Formal Application' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload passport photo of Husband Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload passport photo of Wife Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Affidavit of non-' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Birth Certificate or' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Certificate of State' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Notarized letter' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Nigerian' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Spouse means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Notarized consent' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Couples full length' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Full length photo of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Marriage document of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Proof of Address eg' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.type(citizenshipbachelorhood.necessaryDocumentName, 'Test');
-        await page.setInputFiles(citizenshipbachelorhood.necessaryDocument, 'Dummy_PDF.pdf');
+
+
+        await page.locator('li').filter({ hasText: '* Upload Application Letter' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Passport Photograph Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Certificate of local' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('#ForeignSpousePassportPhotograph').setInputFiles('download.png');
+        await page.locator('#ColouredPicture').setInputFiles('download.png');
+        await page.locator('li').filter({ hasText: '* Upload data page of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload identity card issued' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload a full length coloured picture of foreign spouse Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Government Issued Document Showing Application to Marry By A' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Government Issued Identity Card Of Intended Foreign Spouse With' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Copy Of Law Of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Affidavit of Non' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Notorized Letter from local government of origin affirming applicant' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Notorized Letter from Parent or other Senior Family member confirming' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* UPLOAD COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+
+        await page.type(citizenshipattesation.necessaryDocumentName, 'Test');
+        await page.setInputFiles(citizenshipattesation.necessaryDocument, 'Dummy_PDF.pdf');
 
 
         //Proceed button click

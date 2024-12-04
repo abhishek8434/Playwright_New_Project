@@ -806,17 +806,17 @@ test.describe('Apply For Citizenship', () => {
         await page.selectOption(citizenshipbyroc.DeclarationRenounceCountry, '161');
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator(citizenshipbyroc.PassportPhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyroc.BirthCertificate).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyroc.InternationalPassport).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyroc.SwornAffidavit).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('#EvidenceCitizenshipInNewCountry').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyroc.EvidenceCitizenshipInNewCountry).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyroc.LocalGovCertiOfOriginWithPassportPhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbyroc.CertificateByTheSecretary).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbyroc.PassportPhotograph).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyroc.BirthCertificate).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyroc.InternationalPassport).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyroc.SwornAffidavit).setInputFiles('Dummy_PDF.pdf');
+        await page.locator('#EvidenceCitizenshipInNewCountry').setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyroc.EvidenceCitizenshipInNewCountry).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyroc.LocalGovCertiOfOriginWithPassportPhotograph).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbyroc.CertificateByTheSecretary).setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
         await page.type(citizenshipbyroc.necessaryDocumentName, 'test document name ');
-        await page.locator(citizenshipbyroc.necessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbyroc.necessaryDocument).setInputFiles('Dummy_PDF.pdf');
 
 
 

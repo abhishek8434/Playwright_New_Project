@@ -538,7 +538,7 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizinshipform.aoOtherAssets, 'Stocks');
         await page.type(citizinshipform.aoPropertiesOutSideNigeria, 'House');
         await page.type(citizinshipform.aoAssetssOutSideNigeria, 'Investment');
-        await page.locator('#DocumentList_0__Document').first().setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('#DocumentList_0__Document').first().setInputFiles('Dummy_PDF.pdf');
 
         //Details Of Dependants
         await page.getByRole('heading', { name: 'Details Of Dependants' }).click();
@@ -625,24 +625,24 @@ test.describe('Apply For Citizenship', () => {
         //Documents Upload
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
 
-        await page.locator(citizinshipform.duPassportPhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duBirthCertificate).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.du5PagesOfInternationalPassport).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duEvidenceOLivelihood).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duTaxclearanceCertificate).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duResidencePermit).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duEvidenceOfSocioEconomicContributions).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* UPLOAD COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorDownloadedFrom).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorPassportPhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorCurriculumVitae).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorIdCard).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorDownloadedFrom1).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorPassportPhotograph1).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorCurriculumVitae1).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizinshipform.duGuarantorIdCard1).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizinshipform.duPassportPhotograph).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duBirthCertificate).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.du5PagesOfInternationalPassport).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duEvidenceOLivelihood).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duTaxclearanceCertificate).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duResidencePermit).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duEvidenceOfSocioEconomicContributions).setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* UPLOAD COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorDownloadedFrom).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorPassportPhotograph).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorCurriculumVitae).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorIdCard).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorDownloadedFrom1).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorPassportPhotograph1).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorCurriculumVitae1).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizinshipform.duGuarantorIdCard1).setInputFiles('Dummy_PDF.pdf');
         await page.type(citizinshipform.duNecessaryDocumentName, 'Citizenship data');
-        await page.locator(citizinshipform.duNecessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizinshipform.duNecessaryDocument).setInputFiles('Dummy_PDF.pdf');
 
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();

@@ -670,3 +670,20 @@ export const citizenshipbachelorhood = {
   necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
   necessaryDocument: '#necessaryDocumentList_0__Document'
 };
+
+export const citizenshipattesation = {
+
+  MaritalStatus : '#MaritalStatus',
+  ForeignAddress: '#ForeignAddress',
+  PlaceOfBirthCountry: '#drpPlaceOfBirthCountry',
+  PlaceOfBirthState: '#drpPlaceOfBirthState',
+  ForeignCity: '#ForeignCity',
+  ReasonOfApplication: '#ReasonOfApplication',
+  ForeignSpouseEmail: '#ForeignSpouseEmail',
+  ForeignSpousePhoneNumber: '#ForeignSpousePhoneNumber',
+
+  //Document Upload
+
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
+};

@@ -156,7 +156,7 @@ test.describe('Apply For Certified True Copy Of Document', () => {
     //Without Certificate number
     test('TC 2: Without Certificate number', async () => {
         await navigateToMarriageForm(page);
-        await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
 
         await page.getByRole('heading', { name: 'Husband Details' }).click();
@@ -176,9 +176,9 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         await page.selectOption(certifiedtrucopy.drpwifestateorgin, '24');
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator('li').filter({ hasText: '* Upload Affidavit From Court' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Police Extract' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Receipt Of Affidavit' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Affidavit From Court' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Police Extract' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Receipt Of Affidavit' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
         await page.type(certifiedtrucopy.applicationReason, 'TEST REASON', { delay: 100 });
         await page.getByRole('link', { name: 'Proceed' }).click();
@@ -195,7 +195,7 @@ test.describe('Apply For Certified True Copy Of Document', () => {
     //with incorrect certificate number
     test('TC 3: With invalid ceritificate number', async () => {
         await navigateToMarriageForm(page);
-        await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
         await page.type(certifiedtrucopy.marriageCertificateno, '56987651', { delay: 100 });
 
         await page.getByRole('heading', { name: 'Husband Details' }).click();
@@ -221,9 +221,9 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         await page.selectOption(certifiedtrucopy.drpwifestateorgin, '24');
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator('li').filter({ hasText: '* Upload Affidavit From Court' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Police Extract' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Receipt Of Affidavit' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Affidavit From Court' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Police Extract' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Receipt Of Affidavit' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
         await page.type(certifiedtrucopy.applicationReason, 'TEST REASON', { delay: 100 });
 
@@ -242,13 +242,13 @@ test.describe('Apply For Certified True Copy Of Document', () => {
     //With valid certificate number
     test('TC 4: With valid certificate number', async () => {
         await navigateToMarriageForm(page);
-        await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
         await page.type(certifiedtrucopy.marriageCertificateno, '5698765', { delay: 100 });
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator('li').filter({ hasText: '* Upload Affidavit From Court' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Police Extract' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Receipt Of Affidavit' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Affidavit From Court' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Police Extract' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Receipt Of Affidavit' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
         await page.type(certifiedtrucopy.applicationReason, 'TEST REASON', { delay: 100 });
 

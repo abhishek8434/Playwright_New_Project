@@ -403,21 +403,21 @@ test.describe('Apply For Citizenship', () => {
 
         //Document Upload
         await page.getByRole("heading", { name: "Documents Upload" }).click();
-        await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Death Certificate' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Evidence Of Source' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Tax Clearance' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Resident Permit/' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');       
-        await page.locator('li').filter({ hasText: '* Upload Applicant’s Means of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Marriage Certificate' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Formal application' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Local Government' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator(citizenshipbysis.marriagePhotograph).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: 'Upload Death Certificate' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Evidence Of Source' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Tax Clearance' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Resident Permit/' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');       
+        await page.locator('li').filter({ hasText: '* Upload Applicant’s Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Marriage Certificate' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Formal application' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Local Government' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator(citizenshipbysis.marriagePhotograph).setInputFiles('Dummy_PDF.pdf');
         await page.type(citizenshipbysis.necessaryDocumentName, 'Student');
-        await page.locator(citizenshipbysis.necessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbysis.necessaryDocument).setInputFiles('Dummy_PDF.pdf');
         await page.waitForTimeout(2000);
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();

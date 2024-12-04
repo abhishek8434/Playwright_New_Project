@@ -364,23 +364,23 @@ test.describe('Apply For Citizenship', () => {
         await page.getByRole('heading', { name: 'Reason For Application' }).click();
         await page.type(citizenshipbytrp.ReasonOfApplication, '98765214');
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload International' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Evidence Of Source' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Tax Clearance' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Resident Permit/' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of First 5 Pages Of Husband International Passport' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Marriage Certificate Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Formal application' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Local Government Certificate of origin of the' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Attestation of' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload Authentic report' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
-        await page.locator('input[name="DocumentList\\[0\\]\\.Document"]').setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload International' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Evidence Of Source' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Tax Clearance' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Resident Permit/' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: 'Upload Birth Certificate Of Children (If Any) Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of First 5 Pages Of Husband International Passport' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Marriage Certificate Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Formal application' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Coloured copies Of Local Government Certificate of origin of the' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Attestation of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload Authentic report' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: '* Upload COPY OF SIGNED' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
+        await page.locator('input[name="DocumentList\\[0\\]\\.Document"]').setInputFiles('Dummy_PDF.pdf');
         await page.locator(citizenshipbytrp.necessaryDocumentName).fill('docu');
-        await page.locator(citizenshipbytrp.necessaryDocument).setInputFiles('Get_Started_With_Smallpdf-output.pdf');
+        await page.locator(citizenshipbytrp.necessaryDocument).setInputFiles('Dummy_PDF.pdf');
         await page.waitForTimeout(2000)
 
         //Proceed button click
