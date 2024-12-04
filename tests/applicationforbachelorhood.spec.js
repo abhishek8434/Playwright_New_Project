@@ -163,7 +163,14 @@ test.describe('Apply For Citizenship', () => {
         // Select the randomly chosen option
         await page.locator(citizenshipbachelorhood.SpouseDetails).selectOption(randomOption);
 
+        // Fetch the visible text of the selected option
+        const selectedText = await page.$eval(
+            `${citizenshipattesation.MaritalStatus} option[value="${randomOption}"]`,
+            option => option.textContent.trim()
+            );
+    
         console.log(`Randomly selected option: ${randomOption}`);
+        console.log(`Visible text for selected option: ${selectedText}`);
 
         await page.type(citizenshipbachelorhood.ForeignAddress, 'Test Address');
         await page.selectOption(citizenshipbachelorhood.PlaceOfBirthCountry, '161');
@@ -223,9 +230,9 @@ test.describe('Apply For Citizenship', () => {
 
         console.log(`The sentence "${validationMessage}" appears ${sentenceCount} times.`);
         // Take a full-page screenshot
-        await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbyroc_invalid_file.png'), fullPage: true });
+        await page.screenshot({ path: path.join(screenshotDir, 'applicationforbachelorhood_invalid_file.png'), fullPage: true });
 
-        console.log('Screenshot saved as citizenshipbyroc_invalid_file.png');
+        console.log('Screenshot saved as applicationforbachelorhood_invalid_file.png');
 
 
     });

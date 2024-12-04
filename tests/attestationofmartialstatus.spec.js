@@ -149,21 +149,25 @@ test.describe('Apply For Citizenship', () => {
     });
 
     //Invalid file type
-    test('TC 2: Invalid file type', async () => {
-
-
-
+    test.only('TC 2: Invalid file type', async () => {
         await navigateToCitizenshipForm(page);
 
-        const option = ['1', '2'];
+        const option = ['3', '4', '5'];
 
         // Pick a random option from the array
         const randomOption = option[Math.floor(Math.random() * option.length)];
 
         // Select the randomly chosen option
-        await page.locator(citizenshipattesation.SpouseDetails).selectOption(randomOption);
+        await page.locator(citizenshipattesation.MaritalStatus).selectOption(randomOption);
+
+        // Fetch the visible text of the selected option
+        const selectedText = await page.$eval(
+        `${citizenshipattesation.MaritalStatus} option[value="${randomOption}"]`,
+        option => option.textContent.trim()
+        );
 
         console.log(`Randomly selected option: ${randomOption}`);
+        console.log(`Visible text for selected option: ${selectedText}`);
 
         await page.type(citizenshipattesation.ForeignAddress, 'Test Address');
         await page.selectOption(citizenshipattesation.PlaceOfBirthCountry, '161');
@@ -175,7 +179,7 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ForeignCity').fill('test');
 
 
-        await page.locator('li').filter({ hasText: 'Upload Identity Card Issued' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: 'Upload Identity Card Issued' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
@@ -187,20 +191,25 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipattesation.ForeignSpousePhoneNumber, phone);
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-        await page.locator('li').filter({ hasText: '* Upload Formal Application' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload passport photo of Husband Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload passport photo of Wife Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Affidavit of non-' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Birth Certificate or' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Certificate of State' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Notarized letter' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Nigerian' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Spouse means of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Notarized consent' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Couples full length' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Full length photo of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Marriage document of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-        await page.locator('li').filter({ hasText: '* Upload Proof of Address eg' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+
+
+        await page.locator('li').filter({ hasText: '* Upload Application Letter' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Passport Photograph Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Certificate of local' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('#ForeignSpousePassportPhotograph').setInputFiles('invalid-file.txt');
+        await page.locator('#ColouredPicture').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload data page of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload identity card issued' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload a full length coloured picture of foreign spouse Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Government Issued Document Showing Application to Marry By A' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Government Issued Identity Card Of Intended Foreign Spouse With' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Copy Of Law Of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Birth Certificate of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Affidavit of Non' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Notorized Letter from local government of origin affirming applicant' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* Upload Notorized Letter from Parent or other Senior Family member confirming' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: '* UPLOAD COPY OF SIGNED' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+
         await page.type(citizenshipattesation.necessaryDocumentName, 'Test');
         await page.setInputFiles(citizenshipattesation.necessaryDocument, 'invalid-file.txt');
 
@@ -223,15 +232,15 @@ test.describe('Apply For Citizenship', () => {
 
         console.log(`The sentence "${validationMessage}" appears ${sentenceCount} times.`);
         // Take a full-page screenshot
-        await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbyroc_invalid_file.png'), fullPage: true });
+        await page.screenshot({ path: path.join(screenshotDir, 'attestation_invalid_file.png'), fullPage: true });
 
-        console.log('Screenshot saved as citizenshipbyroc_invalid_file.png');
+        console.log('Screenshot saved as attestation_invalid_file.png');
 
 
     });
 
 
-    test.only('TC 3: all mandatory field ', async () => {
+    test('TC 3: all mandatory field ', async () => {
         await navigateToCitizenshipForm(page);
 
         const option = ['3', '4', '5'];
