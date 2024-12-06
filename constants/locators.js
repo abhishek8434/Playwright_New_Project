@@ -789,3 +789,47 @@ export const marriagecertification = {
   certifiedtrucopy: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[16]/div[1]/div[1]/input',
   policeextract: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[16]/div[2]/div[1]/input'
 };
+
+export const renewalcitizenship = {
+
+  citizenshipType: '#drpcitizenshipType',
+  DateOfPreviousApproval: '#DateOfPreviousApproval',
+  uploadotherdocuementName: '#otherDocumentList_0__DocumentName',
+  uploadotherdocument: '#otherDocumentList_0__Document',
+  DateOfBirth: '#DateOfBirth',
+  PlaceOfBirthCountry: '#drpPlaceOfBirthCountry',
+  PlaceOfBirthState: '#drpPlaceOfBirthState',
+  CityOfBirth: '#CityOfBirth',
+  ApplicantState: '#drpApplicantState',
+  Localarea: '#drpLocalarea',
+  DateOfMarriage: '#DateOfMarriage',
+  PlaceOfMarriage: '#txtPlaceOfMarriage',
+
+  permanentAddress: '#AddressList_0__Address',
+  permanentCountry: '#AddressList_0__Country',
+  permanentState: '#ddlRespastState',
+  permanentCity: '#AddressList_0__City',
+  presentAddress: '#AddressList_1__Address',
+  presentCountry: '#AddressList_1__Country',
+  presentState: '#ddlRespresentState',
+  presentCity: '#AddressList_1__City',
+  
+  BeneficiaryLastName: '#txtBeneficiaryLastName',
+  BeneficiaryFirstName: '#txtBeneficiaryFirstName',
+  BeneficiaryDateOfBirth: '#BeneficiaryDateOfBirth',
+  BeneficiaryPlaceOfBirthCountry: '#drpBeneficiaryPlaceOfBirthCountry',
+  BeneficiaryPlaceOfBirth: '#txtBeneficiaryPlaceOfBirth',
+  BeneficiaryAddress: '#BeneficiaryAddress',
+  BeneficiaryNationality: '#drpBeneficiaryNationality',
+  BeneficiaryEmail: '#BeneficiaryEmail',
+  BeneficiaryPhoneNumber: '#BeneficiaryPhoneNumber',
+
+  ReasonOfApplication: '#ReasonOfApplication',
+
+  necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
+  necessaryDocument: '#necessaryDocumentList_0__Document'
+
+
+
+
+};
