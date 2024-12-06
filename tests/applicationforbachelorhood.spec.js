@@ -151,8 +151,6 @@ test.describe('Apply For Citizenship', () => {
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
 
-
-
         await navigateToCitizenshipForm(page);
 
         const option = ['1', '2'];
@@ -237,7 +235,7 @@ test.describe('Apply For Citizenship', () => {
 
     });
 
-
+    //positive flow
     test('TC 3: all mandatory field ', async () => {
         await navigateToCitizenshipForm(page);
 
