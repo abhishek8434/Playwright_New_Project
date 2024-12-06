@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "cleanup": "node cleanup.js",
+    "customize-report": "node customize-allure-report.js",
     "test:allure": "npx playwright test && npx allure generate allure-results --clean && npx allure open"
   },
   "keywords": [],
