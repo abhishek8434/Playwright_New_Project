@@ -9,3 +9,5 @@ node_modules/
 /videos/
 /allure-report/
 /allure-results/
+/screenshot-register.png
+/screenshot-success-message.png
