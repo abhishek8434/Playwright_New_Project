@@ -247,9 +247,16 @@ test.describe('Apply For Citizenship', () => {
         const randomOption = option[Math.floor(Math.random() * option.length)];
 
         // Select the randomly chosen option
-        await page.locator(citizenshipbachelorhood.SpouseDetails).selectOption(randomOption);
+        await page.locator(citizenshipattesation.MaritalStatus).selectOption(randomOption);
+
+        // Fetch the visible text of the selected option
+        const selectedText = await page.$eval(
+        `${citizenshipattesation.MaritalStatus} option[value="${randomOption}"]`,
+        option => option.textContent.trim()
+        );
 
         console.log(`Randomly selected option: ${randomOption}`);
+        console.log(`Visible text for selected option: ${selectedText}`);
 
         await page.type(citizenshipbachelorhood.ForeignAddress, 'Test Address');
         await page.selectOption(citizenshipbachelorhood.PlaceOfBirthCountry, '161');

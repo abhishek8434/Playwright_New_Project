@@ -687,3 +687,105 @@ export const citizenshipattesation = {
   necessaryDocumentName: '#necessaryDocumentList_0__DocumentName',
   necessaryDocument: '#necessaryDocumentList_0__Document'
 };
+
+export const marriagecertification = {
+
+  dateOfMarriage: '#dateOfMarriage',
+  RegistryStateId: '#RegistryStateId',
+  WorshipStateId: '#WorshipStateId',
+  RegistryLocalGovArea: '#drpRegistryLocalGovArea',
+  WorshipLocalGovArea: '#drpWorshipLocalGovArea',
+  RegistryName: '#RegistryName',
+  WorshipName: '#WorshipName',
+  CertificatePickupRegistryState: '#drpCertificatePickupRegistryState',
+  PickupRegistry: '#drpPickupRegistry',
+  ContactName: '#ContactName',
+  PhoneNumber: '#PhoneNumber',
+  ResidentialAddress: '#ResidentialAddress',
+  Country: '#drpCountry',
+  State: '#drpState',
+
+  PickupRegistryState: '#drpPickupRegistryState',
+  PostalAddressRegistry: '#drpPostalAddressRegistry',
+
+  HusbandTitle: '#HusbandTitle',
+  HusbandLastName:'#HusbandLastName',
+  HusbandFirstName: '#HusbandFirstName',
+  husbandDateofbirth: '#husbandDateofbirth',
+  husbandlegalconsentfromguardian: '#li_husbandlegalconsentfromguardian',
+  HusbandAddress: '#HusbandAddress',
+  HusbandOccupation: '#HusbandOccupation',
+  HusbandFirstNameOfFather: '#HusbandFirstNameOfFather',
+  HusbandFatherOccupation: '#txtHusbandFatherOccupation',
+
+  HusbandPlaceOfBirth: '#HusbandPlaceOfBirth',
+  HusbandCountry: '#drpHusbandCountry',
+  HusbandStateOrigin: '#drpHusbandStateOrigin',
+  husbandLocalarea: '#drphusbandLocalarea',
+  PersonalIdentityTypeOfHusband: '#ddlPersonalIdentityTypeOfHusband',
+  OtherPersonalIdentityTypeOfHusband: '#txtOtherPersonalIdentityTypeOfHusband',
+  PersonalIdentityOfHusband: '#txtPersonalIdentityOfHusband',
+  HusbandIdentification: '#HusbandIdentification',
+  HusbandPassport: '#li_HusbandPassport',
+
+  HusbandCurrentCountry: '#ddlHusbandCurrentCountry',
+  HusbandCurrentState: '#drpHusbandCurrentState',
+  husbandCurrentLGA: '#drphusbandCurrentLGA',
+
+  HusbandCurrentResidenceAddress: '#HusbandCurrentResidenceAddress',
+
+  WifeTitle: '#WifeTitle',
+  WifeLastName: '#WifeLastName',
+  WifeFirstName: '#WifeFirstName',
+  wifeDateofbirth: '#wifeDateofbirth',
+
+  wifelegalconsentfromguardian: '#li_wifelegalconsentfromguardian',
+  WifeAddress: '#WifeAddress',
+  WifeOccupation: '#WifeOccupation',
+  WifeFirstNameOfFather: '#WifeFirstNameOfFather',
+
+  WifeFatherOccupation: '#txtWifeFatherOccupation',
+
+  WifePhone: '#WifePhone',
+  WifeEmail: '#WifeEmail',
+  WifePlaceOfBirth: '#WifePlaceOfBirth',
+  WifeCountry: '#drpWifeCountry',
+  WifeStateOrigin: '#drpWifeStateOrigin',
+  wifeLocalarea: '#drpwifeLocalarea',
+  PersonalIdentityTypeOfWife: '#ddlPersonalIdentityTypeOfWife',
+  PersonalIdentityOfWife: '#txtPersonalIdentityOfWife',
+  WifeCurrentCountry: '#drpWifeCurrentCountry',
+  WifeCurrentState: '#drpWifeCurrentState',
+  WifeCurrentLGA: '#drpWifeCurrentLGA',
+  WifeCurrentResidenceAddress: '#WifeCurrentResidenceAddress',
+
+  OtherPersonalIdentityTypeOfWife: '#txtOtherPersonalIdentityTypeOfWife',
+
+  genwifeDocFilePart: '#genwifeDocFilePart',
+
+  Witness1FirstName: '#Witness1FirstName',
+  Witness1LastName: '#Witness1LastName',
+  Witness2FirstName: '#Witness2FirstName',
+  Witness2LastName: '#Witness2LastName',
+
+  relevantDocFilePart: '#relevantDocFilePart',
+
+  uploadEvidenceOptionYes : 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[14]/div/div[2]/label/input',
+  uploadEvidenceOptionNo : 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[14]/div/div[3]/label/input',
+
+
+  registry: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[18]/div/div[1]/label/input',
+  postal: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[18]/div/div[2]/label/input ',
+  
+  stategovenment: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[4]/div/div[1]/label/input',
+  placeofworship: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[4]/div/div[2]/label/input',
+
+  livingwife: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[4]/div/ul/li[16]/div/div[1]/label/input',
+  deceasedwife: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[4]/div/ul/li[16]/div/div[2]/label/input',
+
+  living: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[2]/div/ul/li[16]/div/div[1]/label/input',
+  deceased: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[2]/div/ul/li[16]/div/div[2]/label/input',
+
+  certifiedtrucopy: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[16]/div[1]/div[1]/input',
+  policeextract: 'xpath=/html/body/div[5]/div/form/div/div/div[1]/div/div[1]/div/ul/li[16]/div[2]/div[1]/input'
+};

@@ -251,7 +251,14 @@ test.describe('Apply For Citizenship', () => {
         // Select the randomly chosen option
         await page.locator(citizenshipattesation.MaritalStatus).selectOption(randomOption);
 
+        // Fetch the visible text of the selected option
+        const selectedText = await page.$eval(
+        `${citizenshipattesation.MaritalStatus} option[value="${randomOption}"]`,
+        option => option.textContent.trim()
+        );
+
         console.log(`Randomly selected option: ${randomOption}`);
+        console.log(`Visible text for selected option: ${selectedText}`);
 
         await page.type(citizenshipattesation.ForeignAddress, 'Test Address');
         await page.selectOption(citizenshipattesation.PlaceOfBirthCountry, '161');
