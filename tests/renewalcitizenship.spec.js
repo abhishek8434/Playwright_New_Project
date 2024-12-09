@@ -131,7 +131,7 @@ test.describe('Apply For Citizenship', () => {
     });
 
     //Leave all mandatory field blank
-    test('TC 1: Leave all mandatory field blank', async () => {
+    test('TC 1: Validate mandatory fields are required', async () => {
         await navigateToCitizenshipForm(page);
 
         await page.getByRole('link', { name: 'Proceed' }).click();
@@ -149,7 +149,7 @@ test.describe('Apply For Citizenship', () => {
     });
 
     //Invalid file type
-    test('TC 2: Invalid file type', async () => {
+    test('TC 2: Prevent upload of invalid file types', async () => {
         await navigateToCitizenshipForm(page);
 
         const option = ['1', '2', '3'];
@@ -293,7 +293,7 @@ test.describe('Apply For Citizenship', () => {
     });
 
 
-    test('TC 3: all mandatory field ', async () => {
+    test('TC 3: Submit citizenship renewal with valid information', async () => {
         await navigateToCitizenshipForm(page);
 
         const option = ['1', '2', '3'];

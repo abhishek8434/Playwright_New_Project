@@ -830,6 +830,45 @@ export const renewalcitizenship = {
   necessaryDocument: '#necessaryDocumentList_0__Document'
 
 
+};
+
+export const applyforworship = {
+
+  PlaceOfOath: '#dllPlaceOfOath',
+  State: '#drpState',
+  Localarea: '#drpLocalarea',
+
+  RepresentativeSurname: '#RepresentativeSurname',
+  RepresentativeFirstName: '#RepresentativeFirstName',
+  RepresentativeEmail: '#RepresentativeEmail',
+  RepresentativePhone: '#RepresentativePhone',
+
+  DoesChurchHaveOrdainedPastor: '#DoesChurchHaveOrdainedPastor',
+  DoesChurchHaveStandByGenerator: '#DoesChurchHaveStandByGenerator',
+  DoesChurchHaveProvisionForSafekeeping: '#DoesChurchHaveProvisionForSafekeeping',
+  IsChurchBuildingCompleteAndAllItemsAboveInPlace: '#IsChurchBuildingCompleteAndAllItemsAboveInPlace',
+  IsChurchBuiltOfConcreteWall: '#IsChurchBuiltOfConcreteWall',
+  DoesChurchHaveCleanEnvironment: '#DoesChurchHaveCleanEnvironment',
+  DoesChurchHaveWaterCloset: '#DoesChurchHaveWaterCloset',
+  DoesChurchHaveAdeQuateVentilation: '#DoesChurchHaveAdeQuateVentilation',
+  DoesChurchHavePublicAddressSystem: '#DoesChurchHavePublicAddressSystem',
+  isChurchHavePermanentSite: '#isChurchHavePermanentSite',
+  drpChurchExtinguisher: '#drpChurchExtinguisher',
+  IsChurchregistredUnderLandPerpetualAct: '#IsChurchregistredUnderLandPerpetualActCAP98',
+
+  lastRenewalDate: '#lastRenewalDate',
+  LastRenewalReceiptFile: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[4]/div/ul[2]/li[2]/div[1]/input',
+  OutstandingRenewalFee: '#OutstandingRenewalFee',
+
+  IDCardType: '#ddIDCardTypeID',
+  PlaceOfWorshipPhotoFile: '#PlaceOfWorshipPhotoFile',
+  PastorTypeID: '#ddPastorTypeID',
+  PastorMinisterIdentificationFile: '#PastorMinisterIdentificationFile',
+  PassportPhotographsofPastorMinisterFile: '#PassportPhotographsofPastorMinisterFile',
+  PowerofAttorneyFile: '#PowerofAttorneyFile',
+
+  previouslicenseyes: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[4]/div/ul[1]/li[1]/div/div[1]/label/input',
+  previouslicenseno: 'xapth=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[4]/div/ul[1]/li[1]/div/div[2]/label/input',
 
 
 };
