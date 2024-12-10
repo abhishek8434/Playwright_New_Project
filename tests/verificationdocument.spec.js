@@ -76,17 +76,8 @@ if (!fs.existsSync(screenshotDir)) {
     fs.mkdirSync(screenshotDir, { recursive: true });
 }
 
-// Helper function to navigate to the marriage form
-async function navigateToMarriageForm(page) {
-    await page.goto(MY_APPLICATION_URL);
-    expect(await page.title()).toBe('My Applications');
 
-    // Proceed to marriage application form
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await page.locator('#defaultNavbar1').getByText('Marriage', { exact: true }).click();
-    await page.getByRole('link', { name: 'Apply For Verification Of Documents' }).click();
 
-}
 
 test.describe.configure({ mode: 'serial' });
 test.describe('Application For Verification Of Document', () => {
@@ -116,6 +107,9 @@ test.describe('Application For Verification Of Document', () => {
         await page.getByLabel('* Password').type(LOGIN_PASSWORD, { delay: 100 });
         await page.getByLabel('* Password').press('Enter');
         await page.getByRole('button', { name: 'Continue' }).click();
+
+        await page.locator('#defaultNavbar1').getByText('Marriage', { exact: true }).click();
+        await page.getByRole('link', { name: 'Apply For Verification Of Documents' }).click();
     });
 
     test.afterAll(async () => {
@@ -129,7 +123,7 @@ test.describe('Application For Verification Of Document', () => {
 
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
-        await navigateToMarriageForm(page);
+       
 
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
@@ -146,7 +140,7 @@ test.describe('Application For Verification Of Document', () => {
 
     //Invalid marriage certificate number
     test('TC 2 : Invalid marriage certificate number', async () => {
-        await navigateToMarriageForm(page);
+       
 
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
@@ -166,7 +160,7 @@ test.describe('Application For Verification Of Document', () => {
 
     //Form submission fails due to invalid file type upload'
     test('TC 3: Form submission fails due to invalid file type upload', async () => {
-        await navigateToMarriageForm(page);
+       
 
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('./invalid-file.txt');
 
@@ -255,7 +249,7 @@ test.describe('Application For Verification Of Document', () => {
 
     // Positive Scenario: Successful marriage application submission with valid data but incorrect certificate number
     test('TC 4: uccessful marriage application submission with incorrect certificate number', async () => {
-        await navigateToMarriageForm(page);
+       
 
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 
@@ -299,7 +293,7 @@ test.describe('Application For Verification Of Document', () => {
 
      // Positive Scenario: Successful marriage application submission with valid data but incorrect certificate number
      test('TC 5: Successful marriage application submission with correct certificate number', async () => {
-        await navigateToMarriageForm(page);
+       
 
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
 

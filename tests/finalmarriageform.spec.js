@@ -85,32 +85,6 @@ if (!fs.existsSync(screenshotDir)) {
 }
 
 
-// Helper function to navigate to the marriage form
-async function navigateToMarriageForm(page) {
-  await page.goto(MY_APPLICATION_URL);
-  expect(await page.title()).toBe('My Applications');
-
-  // Proceed to marriage application form
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.locator('#defaultNavbar1').getByText('Marriage', { exact: true }).click();
-  await page.getByRole('link', { name: 'Apply For Marriage (New' }).click();
-
-  // Select marriage registry and proceed
-  await page.locator(locators.modalMrgPlaceSelection)
-    .filter({ hasText: 'FEDERAL MARRIAGE REGISTRY' })
-    .locator(locators.placeOfMarriage).check();
-  await page.getByRole('link', { name: 'Proceed' }).click();
-
-  // Handle the 'Requirement' popup
-  const page1Promise = page.waitForEvent('popup');
-  await page.getByRole('link', { name: 'Requirement' }).first().click();
-  const page1 = await page1Promise;
-  await page1.close(); // Close the popup window
-
-  // Continue interaction with the main page
-  await page.locator('#ApplyforOrdinaryMarriage').click();
-  await page.getByRole('link', { name: 'Ok' }).click();
-}
 test.describe.configure({ mode: 'serial' });
 test.describe('Marriage Form Submission Tests', () => {
   let browser;
@@ -139,6 +113,25 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByLabel('* Password').type(LOGIN_PASSWORD, { delay: 100 }); 
     await page.getByLabel('* Password').press('Enter');
     await page.getByRole('button', { name: 'Continue' }).click();
+
+    await page.locator('#defaultNavbar1').getByText('Marriage', { exact: true }).click();
+    await page.getByRole('link', { name: 'Apply For Marriage (New' }).click();
+  
+    // Select marriage registry and proceed
+    await page.locator(locators.modalMrgPlaceSelection)
+      .filter({ hasText: 'FEDERAL MARRIAGE REGISTRY' })
+      .locator(locators.placeOfMarriage).check();
+    await page.getByRole('link', { name: 'Proceed' }).click();
+  
+    // Handle the 'Requirement' popup
+    const page1Promise = page.waitForEvent('popup');
+    await page.getByRole('link', { name: 'Requirement' }).first().click();
+    const page1 = await page1Promise;
+    await page1.close(); // Close the popup window
+  
+    // Continue interaction with the main page
+    await page.locator('#ApplyforOrdinaryMarriage').click();
+    await page.getByRole('link', { name: 'Ok' }).click();
   });
 
   test.afterAll(async () => {
@@ -152,7 +145,7 @@ test.describe('Marriage Form Submission Tests', () => {
 
   // Negative Scenario: Invalid file type upload
   test('TC 1: Form submission fails due to invalid file type upload', async () => {
-    await navigateToMarriageForm(page);
+   
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');
     await page.locator('#DateOfOath').click();
@@ -243,7 +236,7 @@ test.describe('Marriage Form Submission Tests', () => {
 
   // Negative Scenario: Exceed max character limit
   test('TC 2: Form submission fails due to exceeding max character limit in fields', async () => {
-    await navigateToMarriageForm(page);
+   
 
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');
@@ -342,7 +335,7 @@ test.describe('Marriage Form Submission Tests', () => {
   // Negative Scenario: Invalid email format
   test('TC 3: Form submission fails due to invalid email format', async () => {
     
-    await navigateToMarriageForm(page);
+   
 
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');
@@ -431,7 +424,7 @@ test.describe('Marriage Form Submission Tests', () => {
 
   // Negative Scenario: Missing required fields
   test('TC 4: Form submission fails due to missing required fields', async () => {
-    await navigateToMarriageForm(page);
+   
     
 
     await page.locator('#PlaceOfOathID').selectOption('1025');
@@ -497,7 +490,7 @@ test.describe('Marriage Form Submission Tests', () => {
 
   // Positive Scenario: Successful marriage application submission with valid data
   test.only('TC 5: Successful marriage application submission with valid data', async () => {
-    await navigateToMarriageForm(page);
+   
 
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');

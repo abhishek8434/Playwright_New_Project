@@ -79,18 +79,7 @@ if (!fs.existsSync(screenshotDir)) {
 }
 
 
-// Helper function to navigate to the marriage form
-async function navigateToCitizenshipForm(page) {
-    await page.goto(MY_APPLICATION_URL);
-    expect(await page.title()).toBe('My Applications');
 
-    // Proceed to marriage application form
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await page.locator('#defaultNavbar1').getByText('Place of Worship', { exact: true }).click();
-    await page.getByText('Apply For Place Of Worship').click();
-    
-
-}
 
 test.describe.configure({ mode: 'serial' });
 test.describe('Apply For Place of Worship', () => {
@@ -120,6 +109,9 @@ test.describe('Apply For Place of Worship', () => {
         await page.getByLabel('* Password').type(LOGIN_PASSWORD, { delay: 100 });
         await page.getByLabel('* Password').press('Enter');
         await page.getByRole('button', { name: 'Continue' }).click();
+
+        await page.locator('#defaultNavbar1').getByText('Place of Worship', { exact: true }).click();
+        await page.getByText('Apply For Place Of Worship').click();
     });
 
     test.afterAll(async () => {
@@ -133,7 +125,7 @@ test.describe('Apply For Place of Worship', () => {
 
     //Leave all mandatory field blank
     test('TC 1: Validate mandatory fields are required', async () => {
-        await navigateToCitizenshipForm(page);
+       // 
 
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
@@ -151,7 +143,7 @@ test.describe('Apply For Place of Worship', () => {
 
     //Invalid file type
     test('TC 2: Prevent upload of invalid file types', async () => {
-        await navigateToCitizenshipForm(page);
+        //
         await page.selectOption(applyforworship.PlaceOfOath, '16');
         await page.waitForTimeout(2000)
         await page.selectOption(applyforworship.PlaceOfOath, '1');
@@ -321,7 +313,7 @@ test.describe('Apply For Place of Worship', () => {
             await page.getByRole('link', { name: '17' }).click();
             
             //await page.locator('#file_div_LastRenewal #LastRenewalReceiptFile').setInputFiles('Dummy_PDF.pdf');
-            await page.locator(applyforworship.LastRenewalReceiptFile).setInputFiles('Dummy_PDF.pdf');
+            await page.locator(applyforworship.LastRenewalReceiptFile).setInputFiles('invalid-file.txt');
             // await page.type(applyforworship.OutstandingRenewalFee, '50000');
         } else {
             // Actions when "no" or another option is selected
@@ -347,12 +339,12 @@ test.describe('Apply For Place of Worship', () => {
         console.log(`Visible text for selected option: ${selectedText12}`);
 
     
-        await page.locator('li').filter({ hasText: 'Upload Id Card Of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Certificate Of Occupancy Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Certificate Of Incorporation Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: 'Upload First Five Pages and' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator('li').filter({ hasText: 'Upload Ordination Certificate' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-        await page.locator(applyforworship.PlaceOfWorshipPhotoFile).setInputFiles('Dummy_PDF.pdf');
+        await page.locator('li').filter({ hasText: 'Upload Id Card Of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: 'Upload Certificate Of Occupancy Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: 'Upload Certificate Of Incorporation Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: 'Upload First Five Pages and' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator('li').filter({ hasText: 'Upload Ordination Certificate' }).getByRole('textbox').setInputFiles('invalid-file.txt');
+        await page.locator(applyforworship.PlaceOfWorshipPhotoFile).setInputFiles('invalid-file.txt');
 
         const randomOption13 = option3[Math.floor(Math.random() * option3.length)];
         // Select the randomly chosen option3
@@ -366,11 +358,11 @@ test.describe('Apply For Place of Worship', () => {
         console.log(`Visible text for selected option: ${selectedText13}`);
 
 
-        await page.locator(applyforworship.PastorMinisterIdentificationFile).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(applyforworship.PastorMinisterIdentificationFile).setInputFiles('invalid-file.txt');
 
-        await page.locator(applyforworship.PassportPhotographsofPastorMinisterFile).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(applyforworship.PassportPhotographsofPastorMinisterFile).setInputFiles('invalid-file.txt');
 
-        await page.locator(applyforworship.PowerofAttorneyFile).setInputFiles('Dummy_PDF.pdf');
+        await page.locator(applyforworship.PowerofAttorneyFile).setInputFiles('invalid-file.txt');
 
         
         //Proceed button click
@@ -400,8 +392,8 @@ test.describe('Apply For Place of Worship', () => {
     });
 
 
-    test.only('TC 3: Submit citizenship renewal with valid information', async () => {
-        await navigateToCitizenshipForm(page);
+    test('TC 3: Submit citizenship renewal with valid information', async () => {
+        //
         await page.selectOption(applyforworship.PlaceOfOath, '16');
         await page.waitForTimeout(2000)
         await page.selectOption(applyforworship.PlaceOfOath, '1');

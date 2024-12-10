@@ -97,19 +97,6 @@ if (!fs.existsSync(screenshotDir)) {
 }
 
 
-// Helper function to navigate to the marriage form
-async function navigateToCitizenshipForm(page) {
-    await page.goto(MY_APPLICATION_URL);
-    expect(await page.title()).toBe('My Applications');
-
-    // Proceed to marriage application form
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
-    await page.getByRole('link', { name: 'Apply For Confirmation Of' }).click();
-    await page.getByRole('link', { name: 'Proceed' }).click();
-
-}
-
 test.describe.configure({ mode: 'serial' });
 test.describe('Apply For Citizenship', () => {
     let browser;
@@ -138,6 +125,11 @@ test.describe('Apply For Citizenship', () => {
         await page.getByLabel('* Password').type(LOGIN_PASSWORD, { delay: 100 });
         await page.getByLabel('* Password').press('Enter');
         await page.getByRole('button', { name: 'Continue' }).click();
+
+        await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
+        await page.getByRole('link', { name: 'Apply For Confirmation Of' }).click();
+        await page.getByRole('link', { name: 'Proceed' }).click();
+    
     });
 
     test.afterAll(async () => {
@@ -151,7 +143,7 @@ test.describe('Apply For Citizenship', () => {
 
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
-        await navigateToCitizenshipForm(page);
+        
 
 
         await page.getByRole('button', { name: 'Proceed To Payment' }).click();
@@ -170,7 +162,7 @@ test.describe('Apply For Citizenship', () => {
 
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
-        await navigateToCitizenshipForm(page);
+        
 
         await page.click(marriagecertification.dateOfMarriage);
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2023');
@@ -547,7 +539,7 @@ test.describe('Apply For Citizenship', () => {
 
 
     test('TC 3: all mandatory field ', async () => {
-        await navigateToCitizenshipForm(page);
+        
 
         await page.click(marriagecertification.dateOfMarriage);
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2023');

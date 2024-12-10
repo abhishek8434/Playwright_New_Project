@@ -80,21 +80,6 @@ if (!fs.existsSync(screenshotDir)) {
 }
 
 
-// Helper function to navigate to the marriage form
-async function navigateToCitizenshipForm(page) {
-    await page.goto(MY_APPLICATION_URL);
-    expect(await page.title()).toBe('My Applications');
-
-    // Proceed to marriage application form
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
-    await page.getByRole('link', { name: 'Apply For Citizenship' }).click();
-    await page.getByRole('heading', { name: 'Citizenship By Naturalization' }).click();
-    await page.getByRole('heading', { name: 'Citizenship By Investment' }).click();
-    await page.getByRole('link', { name: 'Proceed' }).click();
-
-
-}
 
 test.describe.configure({ mode: 'serial' });
 test.describe('Apply For Citizenship', () => {
@@ -124,6 +109,12 @@ test.describe('Apply For Citizenship', () => {
         await page.getByLabel('* Password').type(LOGIN_PASSWORD, { delay: 100 });
         await page.getByLabel('* Password').press('Enter');
         await page.getByRole('button', { name: 'Continue' }).click();
+
+        await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
+        await page.getByRole('link', { name: 'Apply For Citizenship' }).click();
+        await page.getByRole('heading', { name: 'Citizenship By Naturalization' }).click();
+        await page.getByRole('heading', { name: 'Citizenship By Investment' }).click();
+        await page.getByRole('link', { name: 'Proceed' }).click();
     });
 
     test.afterAll(async () => {
@@ -137,7 +128,7 @@ test.describe('Apply For Citizenship', () => {
 
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
-        await navigateToCitizenshipForm(page);
+        
 
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
@@ -155,7 +146,7 @@ test.describe('Apply For Citizenship', () => {
 
     //Invalid file type
     test.only('TC 2: Invalid file type', async () => {
-        await navigateToCitizenshipForm(page);
+        
 
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
@@ -270,7 +261,7 @@ test.describe('Apply For Citizenship', () => {
 
     //Positive Flow
     test('TC 3: Positive Scenrio', async () => {
-        await navigateToCitizenshipForm(page);
+        
 
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
