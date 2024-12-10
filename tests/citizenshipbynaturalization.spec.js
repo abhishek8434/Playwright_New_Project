@@ -277,8 +277,8 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizinshipform.ddLastName, 'Willaim');
         await page.type(citizinshipform.ddFirstName, 'Headwick');
         await page.locator('#dtDependantsDOB').click();
-        await page.getByText('PrevNextJanFebMarAprMayJunJulAugSepOct190019011902190319041905190619071908190919').click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2000');
+        await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('9');
         await page.getByRole('link', { name: '3', exact: true }).click();
         await page.selectOption(citizinshipform.ddCountryOfBirth, '156');
         await page.type(citizinshipform.ddRelationshipWithDependant, 'Spouse');
@@ -537,8 +537,8 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizinshipform.ddLastName, 'Willaim');
         await page.type(citizinshipform.ddFirstName, 'Headwick');
         await page.locator('#dtDependantsDOB').click();
-        await page.getByText('PrevNextJanFebMarAprMayJunJulAugSepOct190019011902190319041905190619071908190919').click();
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2000');
+        await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('9');
         await page.getByRole('link', { name: '3', exact: true }).click();
         await page.selectOption(citizinshipform.ddCountryOfBirth, '156');
         await page.type(citizinshipform.ddRelationshipWithDependant, 'Spouse');
@@ -645,6 +645,13 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         await page.getByRole('link', { name: 'Submit' }).click();
+
+        
+        // For payment
+        // await page.getByLabel('The information provided').check();
+        // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
+        // await page.getByRole('link', { name: 'Ok' }).click();
+
 
     });
 

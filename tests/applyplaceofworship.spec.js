@@ -40,8 +40,8 @@ const formData = {
 dotenv.config();
 
 const LOGIN_URL = process.env.LOGIN_URL;
-const LOGIN_EMAIL = process.env.LOGIN_EMAIL1;
-const LOGIN_PASSWORD = process.env.LOGIN_PASSWORD1;
+const LOGIN_EMAIL = process.env.LOGIN_EMAIL;
+const LOGIN_PASSWORD = process.env.LOGIN_PASSWORD;
 const LOGIN_PASSWORD_SECONDARY = process.env.LOGIN_PASSWORD_SECONDARY;
 const MY_APPLICATION_URL = process.env.MY_APPLICATION_URL;
 
@@ -623,9 +623,17 @@ test.describe('Apply For Place of Worship', () => {
         } else {
             console.log("The text is not visible.");
         }
-        //await page.getByRole('link', { name: 'Submit' }).click();
+        await page.getByRole('link', { name: 'Submit' }).click();
 
+        //For payment
+        await page.getByLabel('The information provided').check();
+        await page.getByRole('button', { name: 'Proceed To Payment' }).click();
+        await page.getByRole('link', { name: 'Ok' }).click();
+        //await page.locator('#rbtnOnline').check();
+        await page.getByText('Online Pay').click();
 
+        await page.getByRole('button', { name: 'Pay' }).click();
+        await page.waitForTimeout(2000);
 
     });
 

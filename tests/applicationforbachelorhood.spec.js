@@ -166,7 +166,7 @@ test.describe('Apply For Citizenship', () => {
 
         // Fetch the visible text of the selected option
         const selectedText = await page.$eval(
-            `${citizenshipattesation.MaritalStatus} option[value="${randomOption}"]`,
+            `${citizenshipbachelorhood.SpouseDetails} option[value="${randomOption}"]`,
             option => option.textContent.trim()
             );
     
@@ -248,11 +248,11 @@ test.describe('Apply For Citizenship', () => {
         const randomOption = option[Math.floor(Math.random() * option.length)];
 
         // Select the randomly chosen option
-        await page.locator(citizenshipattesation.MaritalStatus).selectOption(randomOption);
+        await page.locator(citizenshipbachelorhood.SpouseDetails).selectOption(randomOption);
 
         // Fetch the visible text of the selected option
         const selectedText = await page.$eval(
-        `${citizenshipattesation.MaritalStatus} option[value="${randomOption}"]`,
+        `${citizenshipbachelorhood.SpouseDetails} option[value="${randomOption}"]`,
         option => option.textContent.trim()
         );
 
@@ -308,6 +308,11 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         await page.getByRole('link', { name: 'Submit' }).click();
+
+        //For payment 
+        // await page.getByLabel('The information provided').check();
+        // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
+        // await page.getByRole('link', { name: 'Ok' }).click();
 
 
 

@@ -222,7 +222,7 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         await page.getByText('You have successfully').click();
         await page.waitForTimeout(2000)
         await page.screenshot({ path: path.join(screenshotDir, 'screenshot-sucesssubmit-withincorrectnumber.png'), fullPage: true });
-        await page.getByRole('link', { name: 'Submit' }).click();
+        //await page.getByRole('link', { name: 'Submit' }).click();
 
         await page.waitForTimeout(2000)
 
@@ -247,7 +247,12 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         await page.getByText('You have successfully').click();
         await page.waitForTimeout(2000)
         await page.screenshot({ path: path.join(screenshotDir, 'screenshot-sucesssubmit-correctnumber.png'), fullPage: true });
-        await page.getByRole('link', { name: 'Submit' }).click();
+        //await page.getByRole('link', { name: 'Submit' }).click();
+
+        //For payment have to use same on every file 
+        // await page.getByLabel('The information provided').check();
+        // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
+        // await page.getByRole('link', { name: 'Ok' }).click();
 
         await page.waitForTimeout(2000)
 

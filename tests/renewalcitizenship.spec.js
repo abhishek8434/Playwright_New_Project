@@ -111,7 +111,7 @@ test.describe('Apply For Citizenship', () => {
         await page.getByRole('button', { name: 'Continue' }).click();
 
         await page.locator('#defaultNavbar1').getByText('Citizenship', { exact: true }).click();
-        await page.getByText('Apply For Renewal Of').click();
+        await page.getByText('Apply For Renewal Of Temporary Residence Permit').click();
     });
 
     test.afterAll(async () => {

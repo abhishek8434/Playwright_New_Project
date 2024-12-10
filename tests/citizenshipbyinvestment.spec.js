@@ -356,7 +356,14 @@ test.describe('Apply For Citizenship', () => {
         } else {
             console.log("The text is not visible.");
         }
-        await page.getByRole('link', { name: 'Submit' }).click();
+        //await page.getByRole('link', { name: 'Submit' }).click();
+
+        
+        // For payment
+        // await page.getByLabel('The information provided').check();
+        // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
+        // await page.getByRole('link', { name: 'Ok' }).click();
+
 
 
     })
