@@ -52,4 +52,3 @@ export const livingfatherhusband = ["living", "deceased"];
 export const livingfatherwife = ["living", "deceased"];
 
 
-console.log(getRandomNumber(0, 1))
