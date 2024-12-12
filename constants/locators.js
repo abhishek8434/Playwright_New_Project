@@ -872,3 +872,26 @@ export const applyforworship = {
 
 
 };
+
+export const celebrationdate = {
+
+  txtLimit: '#txtLimit',
+  
+};
+
+export const certificaterequest = {
+
+  MinisterName: '#MinisterName',
+  txtNoOfCertificates: '#txtNoOfCertificates',
+  UnUsedCertificateRange: '#UnUsedCertificateRange',
+  drpNoOfCertificates: '#drpNoOfCertificates',
+  CertificatePickupPostalAddress: '#CertificatePickupPostalAddress',
+  radioyes: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[1]/li[1]/div/div[1]/label/input',
+  radiono: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[1]/li[1]/div/div[2]/label/input',
+  registry: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[1]/div/div[1]/label/input',
+  postaladdress: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[1]/div/div[2]/label/input',
+  twentyfivecertificate: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[4]/div/div[1]/label/input',
+  fivecertificate: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[4]/div/div[2]/label/input',
+  txtDeliveryCharges: '#txtDeliveryCharges'
+
+};
