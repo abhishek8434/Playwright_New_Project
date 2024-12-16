@@ -191,7 +191,7 @@ test.describe('Apply For Citizenship', () => {
                 addressradio1[getRandomNumber(0, 1)] === "yes"
                     ? await selectyes.check()
                     : await selectno.check();
-                    
+q                    
         if (await page.locator(certificaterequest.radioyes).isChecked()) {
             // Actions when "yes" is selected
             console.log("Yes is selected. Executing actions for 'yes'.");
