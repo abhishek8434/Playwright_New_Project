@@ -892,6 +892,7 @@ export const certificaterequest = {
   postaladdress: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[1]/div/div[2]/label/input',
   twentyfivecertificate: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[4]/div/div[1]/label/input',
   fivecertificate: 'xpath=/html/body/div[5]/div/div[2]/div/form/div[1]/div/div[2]/div/ul[3]/li[4]/div/div[2]/label/input',
-  txtDeliveryCharges: '#txtDeliveryCharges'
+  txtDeliveryCharges: '#txtDeliveryCharges',
+  drpPlaceOfOathID: '#drpPlaceOfOathID'
 
 };

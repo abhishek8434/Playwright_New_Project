@@ -1,8 +1,9 @@
 const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
 
-
 const { locators } = require('../constants/locators');
 import { certificaterequest } from '../constants/locators';
+import { addressradio, addressradio1} from '../utils/helper.js';
+import { getRandomNumber } from "../utils/helper.js";
 
 const path = require('path');
 const fs = require('fs');
@@ -13,7 +14,6 @@ import { faker } from '@faker-js/faker';
 const BeneficiaryfirstName = faker.person.firstName('male');
 const BeneficiarylastName = faker.person.lastName('male');
 const email = faker.internet.email({ BeneficiaryfirstName, BeneficiarylastName, provider: 'yopmail.com' })
-
 
 // Nigerian phone numbers start with prefixes such as 080, 081, 090, 070 followed by 7 digits
 // Generate a phone number in the format +234XXXXXXXXXX
@@ -71,13 +71,10 @@ async function slowScrollTopBottom(page) {
     await page.waitForTimeout(timeoutScroll);
 }
 
-
-
 const screenshotDir = path.join(__dirname, '../Screenshots');
 if (!fs.existsSync(screenshotDir)) {
     fs.mkdirSync(screenshotDir, { recursive: true });
 }
-
 
 // // Helper function to navigate to the marriage form
 // async function navigateToCitizenshipForm(page) {
@@ -184,20 +181,36 @@ test.describe('Apply For Citizenship', () => {
 
     //positive flow
     test.only('TC 3: all mandatory field ', async () => {
-        
-      
+              
         await page.type(certificaterequest.MinisterName, 'Namoie')
         
         await page.getByRole('heading', { name: 'Request For Marriage Booklet(' }).click();
+
+        const selectyes = await page.locator(certificaterequest.radioyes);
+                const selectno = await page.locator(certificaterequest.radiono);
+                addressradio1[getRandomNumber(0, 1)] === "yes"
+                    ? await selectyes.check()
+                    : await selectno.check();
+                    
         if (await page.locator(certificaterequest.radioyes).isChecked()) {
             // Actions when "yes" is selected
             console.log("Yes is selected. Executing actions for 'yes'.");
+            await page.click(certificaterequest.txtNoOfCertificates);
+            await page.press(certificaterequest.txtNoOfCertificates, 'Backspace');
             await page.type(certificaterequest.txtNoOfCertificates, '250')
             await page.type(certificaterequest.UnUsedCertificateRange, '100-500');
         } else {
             // Actions when "no" or another option is selected
             console.log("No is selected. Executing actions for 'no'.");
 
+          // Select Discount Type
+          const registrycheck = await page.locator(certificaterequest.registry);
+          const postalcheck = await page.locator(certificaterequest.postaladdress);
+  
+          addressradio[getRandomNumber(0, 1)] === "Registry"
+              ? await postalcheck.check()
+              : await registrycheck.check();    
+            
             if (await page.locator(certificaterequest.postaladdress).isChecked()) {
                 // Actions when "yes" is selected
                 console.log("Yes is selected. Executing actions for 'postal'.");
@@ -212,10 +225,10 @@ test.describe('Apply For Citizenship', () => {
             // Pick a random option2 from the array
             const randomOption2 = option2[Math.floor(Math.random() * option2.length)];
             // Select the randomly chosen option2
-            await page.locator(applyforworship.DoesChurchHaveProvisionForSafekeeping).selectOption(randomOption2);
+            await page.locator(certificaterequest.drpPlaceOfOathID).selectOption(randomOption2);
             // Fetch the visible text of the selected option2
             const selectedText2 = await page.$eval(
-            `${applyforworship.DoesChurchHaveProvisionForSafekeeping} option[value="${randomOption2}"]`,
+            `${certificaterequest.drpPlaceOfOathID} option[value="${randomOption2}"]`,
             option => option.textContent.trim()
             );
             console.log(`Randomly selected option: ${randomOption2}`);
@@ -235,14 +248,11 @@ test.describe('Apply For Citizenship', () => {
                 console.log(`Randomly selected option: ${randomOption}`);
                 console.log(`Visible text for selected option: ${selectedText}`);
                 
-                await page.type(certificaterequest.txtDeliveryCharges, '500');
+                //await page.type(certificaterequest.txtDeliveryCharges, '500');
 
-                await page.getByRole('link', { name: 'Proceed' }).click();
+                await page.getByRole('button', { name: 'Proceed' }).click();
         }
-      
-      
-
-
+            
         // //Proceed button click
         // await page.getByRole('link', { name: 'Proceed' }).click();
         // const isVisible = await page.getByText('You have successfully').isVisible();

@@ -8,6 +8,8 @@ const path = require('path');
 const fs = require('fs');
 import * as dotenv from "dotenv";
 import { faker } from '@faker-js/faker';
+import { kMaxLength } from 'buffer';
+import { DEFAULT_ECDH_CURVE } from 'tls';
 
 // Generate a random first name, last name, and combine them in an email
 const BeneficiaryfirstName = faker.person.firstName('male');
@@ -184,18 +186,19 @@ test.describe('Apply For Citizenship', () => {
 
     //positive flow
     test.only('TC 3: all mandatory field ', async () => {
-        
-
-        await page.type(celebrationdate.txtLimit, '999')
-        await page.getByRole('combobox').nth(1).selectOption('2025');
-        await page.getByRole('combobox').first().selectOption('2');
-        await page.getByRole('link', { name: '5', exact: true }).click();
+                
+        await page.fill(celebrationdate.txtLimit, '');
+        await page.type(celebrationdate.txtLimit, '999')        
+        await page.getByRole('combobox').nth(1).selectOption('2026');
+        await page.getByRole('combobox').first().selectOption('4');
+        await page.getByRole('link', { name: '6', exact: true }).click();
+        await page.getByRole('link', { name: '6', exact: true }).click();
         await page.getByText('05/02/2025').click();
         await page.getByRole('button', { name: 'Update' }).click();
         await page.getByText('Updated Successfully!!').click();
         await page.getByRole('button', { name: 'Back' }).click();
         await page.getByRole('button', { name: 'Continue' }).click();
-      
+
 
         // //Proceed button click
         // await page.getByRole('link', { name: 'Proceed' }).click();
