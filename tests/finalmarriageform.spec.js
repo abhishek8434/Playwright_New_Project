@@ -425,8 +425,6 @@ test.describe('Marriage Form Submission Tests', () => {
   // Negative Scenario: Missing required fields
   test('TC 4: Form submission fails due to missing required fields', async () => {
    
-    
-
     await page.locator('#PlaceOfOathID').selectOption('1025');
     await page.locator('#DateOfOath').click();
     await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
@@ -463,34 +461,24 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
     await page.locator('#li_husbandIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
 
-    
-
     // Attempt to proceed without filling any required fields
     await page.getByRole('link', { name: 'Proceed' }).click();
-  
     // Locate the error message for missing required fields
     const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
-    
     // Check if the error message is visible and matches the expected text
     await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
     await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
-  
     // Capture the error message text and log it for debugging purposes
     const errorMessageText = await errorMessageLocator.textContent();
     console.log('Error message displayed:', errorMessageText);
-  
     // Take a screenshot of the error state
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-blank-submit.png'), fullPage: true });
-  
     // Acknowledge the error by clicking "Ok" in the error dialog
     await page.getByRole('link', { name: 'Ok' }).click();
-
   });
   
-
   // Positive Scenario: Successful marriage application submission with valid data
   test.only('TC 5: Successful marriage application submission with valid data', async () => {
-
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');
     await page.locator('#DateOfOath').click();
@@ -522,7 +510,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
     await page.type(HusbandLocators.fatherOccupation, 'Business', { delay: 100 });
-  
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./download.png');
     await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
@@ -534,7 +521,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(WifeLocators.firstName, firstName, { delay: 100 });
     await page.type(WifeLocators.lastName, lastName, { delay: 100 });
     await page.click(WifeLocators.dateOfBirth);
-    
     await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1992');
     await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('11');
     await page.getByRole('link', { name: '10' }).click();   
@@ -557,21 +543,16 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Dummy_PDF.pdf');
     //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
     await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Dummy_PDF.pdf');
-
     // Review and Submit
     await page.getByRole('link', { name: 'Proceed' }).click();
-
     // Check for e-citibiz waning message
     const successMessageLocator = page.locator('text=After Payment for marriage');
     await expect(successMessageLocator).toBeVisible({ timeout: 10000 });   
     await page.getByRole('link', { name: 'Submit' }).click();
-
     // Check for success message
     //const successMessageLocator = page.locator('text=Your marriage application has been submitted successfully.');
     //await expect(successMessageLocator).toBeVisible({ timeout: 10000 });
-
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-successful-submission.png'), fullPage: true });
-    
     //For payment
     // await page.getByRole('heading', { name: 'Husband Details' }).click();
     // await page.getByRole('heading', { name: 'Wife Details' }).click();
