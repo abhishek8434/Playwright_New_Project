@@ -155,7 +155,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByRole('link', { name: '26' }).click();
     await page.locator('#drpTimeOfOath').selectOption('04:00:00 PM - 04:30:00 PM');
     await page.locator('#drpTimeOfMarriage').selectOption('02:30:00 PM - 03:00:00 PM');
-
     // Fill the form with valid data for husband
     // Fill other husband details
     await page.getByRole('heading', { name: 'Husband Details' }).click();
@@ -177,7 +176,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
     await page.type(HusbandLocators.fatherOccupation, 'Business', { delay: 100 });
-
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./invalid-file.txt');
     await page.locator('#HusbandBirthCertificate').first().setInputFiles('./invalid-file.txt');
@@ -189,11 +187,9 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(WifeLocators.firstName, firstName, { delay: 100 });
     await page.type(WifeLocators.lastName, lastName, { delay: 100 });
     await page.click(WifeLocators.dateOfBirth);
-
     await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1992');
     await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('11');
     await page.getByRole('link', { name: '10' }).click();
-
     await page.type(WifeLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(WifeLocators.status, '1');
     await page.setInputFiles(WifeLocators.affidavitUpload, './invalid-file.txt');
@@ -209,35 +205,25 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(WifeLocators.fatherFirstName, wifefatherName, { delay: 100 });
     await page.selectOption(WifeLocators.fatherStatus, 'Living');
     await page.type(WifeLocators.fatherOccupation, 'Business', { delay: 100 });
-
-
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./invalid-file.txt');
     await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./invalid-file.txt');
     //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
     await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './invalid-file.txt');
 
-
     await page.getByRole('link', { name: 'Proceed' }).click();
-
     const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
     await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
     await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
-
     await page.getByRole('link', { name: 'Ok' }).click();
-
     const validationMessage = 'Please upload file with png/jpeg/pdf/word format';
     await expect(page.getByText(validationMessage).first()).toBeVisible({ timeout: 5000 });
-    
     const validationMessage1 = 'Please upload file with png/jpeg format'; 
     await expect(page.getByText(validationMessage1).first()).toBeVisible({ timeout: 5000 });
-
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-invalid-file-type.png'), fullPage: true });
   });
 
   // Negative Scenario: Exceed max character limit
   test('TC 2: Form submission fails due to exceeding max character limit in fields', async () => {
-   
-
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');
     await page.locator('#DateOfOath').click();
@@ -247,7 +233,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.getByRole('link', { name: '26' }).click();
     await page.locator('#drpTimeOfOath').selectOption('04:00:00 PM - 04:30:00 PM');
     await page.locator('#drpTimeOfMarriage').selectOption('02:30:00 PM - 03:00:00 PM');
-
     // Fill the form with valid data for husband
     // Fill other husband details
     await page.getByRole('heading', { name: 'Husband Details' }).click();
@@ -269,7 +254,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(HusbandLocators.fatherFirstName, fatherName, { delay: 100 });
     await page.selectOption(HusbandLocators.fatherStatus, 'Living');
     await page.type(HusbandLocators.fatherOccupation, 'Business', { delay: 100 });
-
     // Using file input locators
     await page.locator('#HusbandPassport').first().setInputFiles('./download.png');
     await page.locator('#HusbandBirthCertificate').first().setInputFiles('./Dummy_PDF.pdf');
@@ -280,29 +264,19 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.selectOption(WifeLocators.title, '1');
     const overLimitText = 'qwertyuiopasdfghjklzxcvbnmqwerty'; // 32 characters
     await page.locator(WifeLocators.firstName).type(overLimitText);
-
     const actualEnteredText = await page.locator(WifeLocators.firstName).inputValue();
     expect(actualEnteredText.length).toBe(30);
     expect(actualEnteredText).toBe(overLimitText.substring(0, 30));
-
     //await page.screenshot({ path: path.join(screenshotDir, 'screenshot-overlimit-text.png'), fullPage: true });
-
-
     await page.locator(WifeLocators.lastName).type(overLimitText);
-
     const actualEnteredText1 = await page.locator(WifeLocators.lastName).inputValue();
     expect(actualEnteredText.length).toBe(30);
     expect(actualEnteredText).toBe(overLimitText.substring(0, 30));
-
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-overlimit-text.png'), fullPage: true });
-
-
     await page.click(WifeLocators.dateOfBirth);
-
     await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1992');
     await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('11');
     await page.getByRole('link', { name: '10' }).click();
-
     await page.type(WifeLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(WifeLocators.status, '1');
     await page.setInputFiles(WifeLocators.affidavitUpload, './Dummy_PDF.pdf');
@@ -318,14 +292,10 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(WifeLocators.fatherFirstName, wifefatherName, { delay: 100 });
     await page.selectOption(WifeLocators.fatherStatus, 'Living');
     await page.type(WifeLocators.fatherOccupation, 'Business', { delay: 100 });
-
-
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./download.png');
     await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Dummy_PDF.pdf');
     //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
-    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Dummy_PDF.pdf');
-
-   
+    await page.setInputFiles(WifeLocators.indigeneDocumentUpload, './Dummy_PDF.pdf');   
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-overlimit-text.png'), fullPage: true });
     console.log("overLimitText-", overLimitText);
     console.log("EnteredText:--", actualEnteredText);
