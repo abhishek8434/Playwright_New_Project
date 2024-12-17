@@ -129,7 +129,6 @@ test.describe('Apply For Citizenship', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
         
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
@@ -140,14 +139,11 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
     //Leave all mandatory field blank
     test.only('TC 2: Invalid file type', async () => {
         
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -398,16 +394,11 @@ test.describe('Apply For Citizenship', () => {
         await page.screenshot({ path: path.join(screenshotDir, 'citizenship_invalid_file.png'), fullPage: true });
 
         console.log('Screenshot saved as citizenship_invalid_file.png');
-
-
     });
-
-
 
     //Positive flow
     test('TC 3: Positive Flow', async () => {
         
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -645,17 +636,12 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         await page.getByRole('link', { name: 'Submit' }).click();
-
-        
+      
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
 
-
     });
-
-
-
 
 });

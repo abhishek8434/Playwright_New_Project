@@ -124,36 +124,28 @@ test.describe('Application For Verification Of Document', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
        
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
         await page.waitForTimeout(2000);
         await page.screenshot({ path: path.join(screenshotDir, 'screenshot-leaveallfieldempty.png'), fullPage: true });
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
-
         await page.getByRole('link', { name: 'Ok' }).click();
-
-
 
     });
 
     //Invalid marriage certificate number
     test('TC 2 : Invalid marriage certificate number', async () => {
-       
-
+    
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
         await page.selectOption(DocumentVerification.certificateType, '1');
         await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
         await page.type(DocumentVerification.marriageCertificateno, '1234567', { delay: 100 });
-
         await page.locator('label').filter({ hasText: 'Yes' }).click();
         await page.getByText('CancelHelp').click();
         await page.waitForTimeout(2000);
         await page.screenshot({ path: path.join(screenshotDir, 'screenshot-incorrect-marriage-certificate.png'), fullPage: true });
         await page.getByRole('link', { name: 'Cancel' }).click();
-
         await page.getByRole('link', { name: 'Proceed' }).click();
 
     });
@@ -161,29 +153,19 @@ test.describe('Application For Verification Of Document', () => {
     //Form submission fails due to invalid file type upload'
     test('TC 3: Form submission fails due to invalid file type upload', async () => {
        
-
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('./invalid-file.txt');
-
-
         // Generate a random number between 1 and 3
         const randomCondition = Math.floor(Math.random() * 3) + 1;
-
         if (randomCondition === 1) {
             // First condition
             await page.selectOption(DocumentVerification.certificateType, '1');
             await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('./invalid-file.txt');
             await page.type(DocumentVerification.marriageCertificateno, '5698765', { delay: 100 });
-
             await page.locator('label').filter({ hasText: 'Yes' }).click();
             await page.type(DocumentVerification.accrediationNo, '21649464', { delay: 100 });
-
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
-
-
             await page.type(DocumentVerification.husbandLastName, formData.hsbndlastName, { delay: 100 });
-
             await page.type(DocumentVerification.husbandFirstName, formData.hsbndfirstName, { delay: 100 });
-
             await page.waitForTimeout(2000);
             //await page.locator('#drpHusbandCountry').selectOption('161');
             await page.selectOption(DocumentVerification.drpHusbandCountry, '161');
@@ -194,12 +176,10 @@ test.describe('Application For Verification Of Document', () => {
             await page.locator('#DateOfMarriageCelebration').click();
             await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('8');
             await page.getByRole('link', { name: '25' }).click();
-
             //await page.locator('#WifeLastName').click();
             await page.type(DocumentVerification.wifeLastName, wifelastName, { delay: 100 });
             //await page.locator('#WifeFirstName').click();
             await page.type(DocumentVerification.wifeFirstName, wifefirstName, { delay: 100 });
-
             //await page.locator('#drpWifeCountry').selectOption('161');
             await page.selectOption(DocumentVerification.drpWifeCountry, '161');
             //await page.locator('#drpwifestateorgin').selectOption('24');
@@ -211,69 +191,49 @@ test.describe('Application For Verification Of Document', () => {
             await page.locator('#divSpinsterhoodCertificate').getByRole('textbox').first().setInputFiles('./invalid-file.txt');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
-
             await page.type(DocumentVerification.accrediationNo, '21649464', { delay: 100 });
-
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
-
         } else if (randomCondition === 3) {
             // Third condition
             await page.selectOption(DocumentVerification.certificateType, '3');
             await page.locator('#divBachelorhoodCertificate').getByRole('textbox').first().setInputFiles('./invalid-file.txt');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
-
             await page.type(DocumentVerification.accrediationNo, '21649464', { delay: 100 });
-
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
 
         }
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
         await page.waitForTimeout(2000);
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
-
         await page.getByRole('link', { name: 'Ok' }).click();
-
         const validationMessage = 'Please upload file with png/jpeg/pdf/word format';
         await page.waitForTimeout(2000);
         await expect(page.getByText(validationMessage).first()).toBeVisible({ timeout: 5000 });
-
         await page.screenshot({ path: path.join(screenshotDir, 'screenshot-invalid-file-type-.png'), fullPage: true });
-
-
 
     });
 
     // Positive Scenario: Successful marriage application submission with valid data but incorrect certificate number
     test('TC 4: uccessful marriage application submission with incorrect certificate number', async () => {
-       
-
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
-
         // Generate a random number between 1 and 3
         const randomCondition = Math.floor(Math.random() * 3) + 1;
-
         if (randomCondition === 1) {
             // First condition
             await page.selectOption(DocumentVerification.certificateType, '1');
             await page.locator('#liAuthorizationLetter').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.type(DocumentVerification.marriageCertificateno, '569876512', { delay: 100 });
-            
         } else if (randomCondition === 2) {
             // Second condition
             await page.selectOption(DocumentVerification.certificateType, '2');
             await page.locator('#divSpinsterhoodCertificate').getByRole('textbox').first().setInputFiles('Dummy_PDF.pdf');
             await page.selectOption(DocumentVerification.registryLocation, '1025');
             await page.locator('label').filter({ hasText: 'Yes' }).click();
-
             await page.type(DocumentVerification.accrediationNo, '21649464', { delay: 100 });
-
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
-
         } else if (randomCondition === 3) {
             // Third condition
             await page.selectOption(DocumentVerification.certificateType, '3');
@@ -286,18 +246,13 @@ test.describe('Application For Verification Of Document', () => {
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
 
         }
-
         await page.getByRole('link', { name: 'Proceed' }).click();
-
     });
 
      // Positive Scenario: Successful marriage application submission with valid data but incorrect certificate number
      test('TC 5: Successful marriage application submission with correct certificate number', async () => {
        
-
         await page.locator('li').filter({ hasText: '* Upload of Means of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
-
         // Generate a random number between 1 and 3
         const randomCondition = Math.floor(Math.random() * 3) + 1;
 
@@ -311,18 +266,12 @@ test.describe('Application For Verification Of Document', () => {
             await page.waitForTimeout(2000);
             await page.screenshot({ path: path.join(screenshotDir, 'screenshot-incorrect-marriage-certificate.png'), fullPage: true });
             await page.getByRole('link', { name: 'Cancel' }).click();
-
             await page.locator('label').filter({ hasText: 'Yes' }).click();
             await page.type(DocumentVerification.accrediationNo, '21649464', { delay: 100 });
-
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
-
             await page.locator('#WifeLastName').click();
             await page.type(DocumentVerification.husbandLastName, hsbndlastName, { delay: 100 });
-
             await page.type(DocumentVerification.husbandFirstName, hsbndfirstName, { delay: 100 });
-
-
             //await page.locator('#drpHusbandCountry').selectOption('161');
             await page.selectOption(DocumentVerification.drpHusbandCountry, '161');
             //await page.locator('#drphusbandstateorgin').selectOption('22');
@@ -366,7 +315,6 @@ test.describe('Application For Verification Of Document', () => {
             await page.type(DocumentVerification.requestReason, '48484848484848', { delay: 100 });
 
         }
-
         await page.getByRole('link', { name: 'Proceed' }).click();
 
     });

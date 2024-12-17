@@ -129,7 +129,6 @@ test.describe('Apply For Citizenship', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
         
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
@@ -140,14 +139,11 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
     //Invalid file type
     test.only('TC 2: Invalid file type', async () => {
         
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -192,8 +188,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbyinvestment.piPresentCity, 'Abia');
         await page.type(citizenshipbyinvestment.piPresentAddress, 'Cross');
 
-
-
         //Professional Information
         await page.getByRole('heading', { name: 'Professional Information' }).click();
         await page.waitForTimeout(2000)
@@ -210,7 +204,6 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#DivProfessionalInformation').getByRole('button').click();
         await page.getByRole('link', { name: 'Nigerian naira' }).click();
         await page.type(citizenshipbyinvestment.profAnnualIncome, '98765214');
-
 
         await page.getByRole('heading', { name: 'Other Information' }).click();
         await page.locator('li').filter({ hasText: 'Can You Read Write And Speak' }).locator('#divYes').click();
@@ -256,13 +249,11 @@ test.describe('Apply For Citizenship', () => {
 
         console.log('Screenshot saved as citizenship_investment_invalid_file.png');
 
-
     });
 
     //Positive Flow
     test('TC 3: Positive Scenrio', async () => {
         
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -307,8 +298,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbyinvestment.piPresentCity, 'Abia');
         await page.type(citizenshipbyinvestment.piPresentAddress, 'Cross');
 
-
-
         //Professional Information
         await page.getByRole('heading', { name: 'Professional Information' }).click();
         await page.waitForTimeout(2000)
@@ -325,7 +314,6 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#DivProfessionalInformation').getByRole('button').click();
         await page.getByRole('link', { name: 'Nigerian naira' }).click();
         await page.type(citizenshipbyinvestment.profAnnualIncome, '98765214');
-
 
         await page.getByRole('heading', { name: 'Other Information' }).click();
         await page.locator('li').filter({ hasText: 'Can You Read Write And Speak' }).locator('#divYes').click();
@@ -357,14 +345,11 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-        
+      
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
 
     })
 

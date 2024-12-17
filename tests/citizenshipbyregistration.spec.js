@@ -131,7 +131,6 @@ test.describe('Apply For Citizenship', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
         
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
@@ -141,17 +140,10 @@ test.describe('Apply For Citizenship', () => {
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
 
         await page.getByRole('link', { name: 'Ok' }).click();
-
-
-
     });
 
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
-        
-
-
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -185,7 +177,6 @@ test.describe('Apply For Citizenship', () => {
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyregistration.piPresentState, '22');
         await page.type(citizenshipbyregistration.piPresentCity, 'Abia');
-
 
         //Professional Information
         await page.getByRole('heading', { name: 'Professional Information' }).click();
@@ -306,8 +297,6 @@ test.describe('Apply For Citizenship', () => {
         await page.selectOption(citizenshipbyregistration.Motherstate, '45');
         await page.type(citizenshipbyregistration.LegalProceedingTaken, 'resrt');
 
-
-
         await page.getByRole('heading', { name: 'Guarantors\' Details' }).click();
 
         const downloadPromise = page.waitForEvent('download');
@@ -366,7 +355,6 @@ test.describe('Apply For Citizenship', () => {
         const declaration = await page.getByText('do solemnly and sincerely declare that the particulars stated in the application are correct').isVisible();
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-
 
         await page.locator(citizenshipbyregistration.duPassportPhotograph).setInputFiles('invalid-file.txt');
         await page.locator(citizenshipbyregistration.duBirthCertificate).setInputFiles('invalid-file.txt');
@@ -410,17 +398,10 @@ test.describe('Apply For Citizenship', () => {
         await page.screenshot({ path: path.join(screenshotDir, 'citizenship_reg_invalid_file.png'), fullPage: true });
 
         console.log('Screenshot saved as citizenship_reg_invalid_file.png');
-
-
     });
-
-
 
     //Positive flow
     test('TC 3: Positive Flow', async () => {
-
-        
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -454,7 +435,6 @@ test.describe('Apply For Citizenship', () => {
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyregistration.piPresentState, '22');
         await page.type(citizenshipbyregistration.piPresentCity, 'Abia');
-
 
         await page.getByRole('heading', { name: 'Professional Information' }).click();
 
@@ -577,8 +557,6 @@ test.describe('Apply For Citizenship', () => {
         await page.selectOption(citizenshipbyregistration.Motherstate, '45');
         await page.type(citizenshipbyregistration.LegalProceedingTaken, 'resrt');
 
-
-
         await page.getByRole('heading', { name: 'Guarantors\' Details' }).click();
 
         const downloadPromise = page.waitForEvent('download');
@@ -638,7 +616,6 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
 
-
         await page.locator(citizenshipbyregistration.duPassportPhotograph).setInputFiles('Dummy_PDF.pdf');
         await page.locator(citizenshipbyregistration.duBirthCertificate).setInputFiles('Dummy_PDF.pdf');
         await page.locator(citizenshipbyregistration.duMarriageCetificate).setInputFiles('Dummy_PDF.pdf');
@@ -668,18 +645,10 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-
-        
+       
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
     });
-
-
-
-
 });

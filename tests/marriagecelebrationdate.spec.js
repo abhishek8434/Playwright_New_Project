@@ -156,8 +156,7 @@ test.describe('Apply For Citizenship', () => {
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
 
-      
-        
+             
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('Please complete all the required field(s).').isVisible();
@@ -181,7 +180,6 @@ test.describe('Apply For Citizenship', () => {
 
         console.log('Screenshot saved as applicationforbachelorhood_invalid_file.png');
 
-
     });
 
     //positive flow
@@ -199,7 +197,6 @@ test.describe('Apply For Citizenship', () => {
         await page.getByRole('button', { name: 'Back' }).click();
         await page.getByRole('button', { name: 'Continue' }).click();
 
-
         // //Proceed button click
         // await page.getByRole('link', { name: 'Proceed' }).click();
         // const isVisible = await page.getByText('You have successfully').isVisible();
@@ -214,8 +211,6 @@ test.describe('Apply For Citizenship', () => {
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
 
     });
 

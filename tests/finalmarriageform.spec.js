@@ -490,7 +490,6 @@ test.describe('Marriage Form Submission Tests', () => {
 
   // Positive Scenario: Successful marriage application submission with valid data
   test.only('TC 5: Successful marriage application submission with valid data', async () => {
-   
 
     // Fill in marriage ceremony details
     await page.locator('#PlaceOfOathID').selectOption('1025');
@@ -538,8 +537,7 @@ test.describe('Marriage Form Submission Tests', () => {
     
     await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1992');
     await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('11');
-    await page.getByRole('link', { name: '10' }).click();
-    
+    await page.getByRole('link', { name: '10' }).click();   
     await page.type(WifeLocators.placeOfBirth, 'Brazil', { delay: 100 });
     await page.selectOption(WifeLocators.status, '1');
     await page.setInputFiles(WifeLocators.affidavitUpload, './Dummy_PDF.pdf');
@@ -555,8 +553,6 @@ test.describe('Marriage Form Submission Tests', () => {
     await page.type(WifeLocators.fatherFirstName, wifefatherName, { delay: 100 });
     await page.selectOption(WifeLocators.fatherStatus, 'Living');
     await page.type(WifeLocators.fatherOccupation, 'Business', { delay: 100 });
-    
-
     await page.locator('li').filter({ hasText: '* Upload Your Passport Photograph Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./download.png');
     await page.locator('li').filter({ hasText: '* Upload Birth Certificate/Declaration Of Age Upload Upload Cancel' }).getByRole('textbox').first().setInputFiles('./Dummy_PDF.pdf');
     //await page.locator('#li_wifeIndegeneDocument input[type="file"]').first().setInputFiles('./Dummy_PDF.pdf');
@@ -567,9 +563,7 @@ test.describe('Marriage Form Submission Tests', () => {
 
     // Check for e-citibiz waning message
     const successMessageLocator = page.locator('text=After Payment for marriage');
-    await expect(successMessageLocator).toBeVisible({ timeout: 10000 });
-
-    
+    await expect(successMessageLocator).toBeVisible({ timeout: 10000 });   
     await page.getByRole('link', { name: 'Submit' }).click();
 
     // Check for success message
@@ -578,7 +572,6 @@ test.describe('Marriage Form Submission Tests', () => {
 
     await page.screenshot({ path: path.join(screenshotDir, 'screenshot-successful-submission.png'), fullPage: true });
     
-
     //For payment
     // await page.getByRole('heading', { name: 'Husband Details' }).click();
     // await page.getByRole('heading', { name: 'Wife Details' }).click();

@@ -137,8 +137,6 @@ test.describe('Apply For Place of Worship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
     //Invalid file type
@@ -299,8 +297,7 @@ test.describe('Apply For Place of Worship', () => {
         );
         console.log(`Randomly selected option: ${randomOption11}`);
         console.log(`Visible text for selected option: ${selectedText11}`);
-
-        
+       
         await page.getByRole('heading', { name: 'Previous License Information' }).click();
     
         // Check if "yes" is selected or available
@@ -322,8 +319,6 @@ test.describe('Apply For Place of Worship', () => {
             // Add additional steps for the "else" scenario if required
         }
                 
-        
-
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
         const option3 = ['1', '2', '3', '4', '5'];
         // Pick a random option3 from the array
@@ -337,8 +332,7 @@ test.describe('Apply For Place of Worship', () => {
         );
         console.log(`Randomly selected option: ${randomOption12}`);
         console.log(`Visible text for selected option: ${selectedText12}`);
-
-    
+   
         await page.locator('li').filter({ hasText: 'Upload Id Card Of' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: 'Upload Certificate Of Occupancy Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: 'Upload Certificate Of Incorporation Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
@@ -357,14 +351,10 @@ test.describe('Apply For Place of Worship', () => {
         console.log(`Randomly selected option: ${randomOption13}`);
         console.log(`Visible text for selected option: ${selectedText13}`);
 
-
         await page.locator(applyforworship.PastorMinisterIdentificationFile).setInputFiles('invalid-file.txt');
-
         await page.locator(applyforworship.PassportPhotographsofPastorMinisterFile).setInputFiles('invalid-file.txt');
-
         await page.locator(applyforworship.PowerofAttorneyFile).setInputFiles('invalid-file.txt');
-
-        
+       
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('Please complete all the required field(s).').isVisible();
@@ -381,13 +371,10 @@ test.describe('Apply For Place of Worship', () => {
 
         // Count occurrences of the sentence
         const sentenceCount = (pageText.match(new RegExp(validationMessage, 'g')) || []).length;
-
         console.log(`The sentence "${validationMessage}" appears ${sentenceCount} times.`);
         // Take a full-page screenshot
         await page.screenshot({ path: path.join(screenshotDir, 'placeofworshipinvalid.png'), fullPage: true });
-
         console.log('Screenshot saved as placeofworshipinvalid.png');
-
 
     });
 
@@ -549,7 +536,6 @@ test.describe('Apply For Place of Worship', () => {
         );
         console.log(`Randomly selected option: ${randomOption11}`);
         console.log(`Visible text for selected option: ${selectedText11}`);
-
         
         await page.getByRole('heading', { name: 'Previous License Information' }).click();
     
@@ -572,8 +558,6 @@ test.describe('Apply For Place of Worship', () => {
             // Add additional steps for the "else" scenario if required
         }
                 
-        
-
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
         const option3 = ['1', '2', '3', '4', '5'];
         // Pick a random option3 from the array
@@ -587,8 +571,7 @@ test.describe('Apply For Place of Worship', () => {
         );
         console.log(`Randomly selected option: ${randomOption12}`);
         console.log(`Visible text for selected option: ${selectedText12}`);
-
-    
+   
         await page.locator('li').filter({ hasText: 'Upload Id Card Of' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
         await page.locator('li').filter({ hasText: 'Upload Certificate Of Occupancy Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
         await page.locator('li').filter({ hasText: 'Upload Certificate Of Incorporation Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
@@ -607,13 +590,9 @@ test.describe('Apply For Place of Worship', () => {
         console.log(`Randomly selected option: ${randomOption13}`);
         console.log(`Visible text for selected option: ${selectedText13}`);
 
-
         await page.locator(applyforworship.PastorMinisterIdentificationFile).setInputFiles('Dummy_PDF.pdf');
-
         await page.locator(applyforworship.PassportPhotographsofPastorMinisterFile).setInputFiles('Dummy_PDF.pdf');
-
         await page.locator(applyforworship.PowerofAttorneyFile).setInputFiles('Dummy_PDF.pdf');
-
 
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();

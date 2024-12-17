@@ -162,7 +162,6 @@ test.describe('Form Submission Tests', () => {
     await page.waitForSelector('xpath=/html/body/div[5]/div/div[2]/div/form/p/span[1]/input')
     await page.click('xpath=/html/body/div[5]/div/div[2]/div/form/p/span[1]/input')
 
-
     // Confirm registration
     await page.getByRole('button', { name: 'Proceed' }).waitFor()
     await page.getByRole('button', { name: 'Proceed' }).click();

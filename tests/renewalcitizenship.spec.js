@@ -288,16 +288,15 @@ test.describe('Apply For Citizenship', () => {
 
     test('TC 3: Submit citizenship renewal with valid information', async () => {
         
-
         const option = ['1', '2', '3'];
 
-        // Pick a random option from the array
+        //Pick a random option from the array
         const randomOption = option[Math.floor(Math.random() * option.length)];
 
-        // Select the randomly chosen option
+        //Select the randomly chosen option
         await page.locator(renewalcitizenship.citizenshipType).selectOption(randomOption);
 
-        // Fetch the visible text of the selected option
+        //Fetch the visible text of the selected option
         const selectedText = await page.$eval(
         `${renewalcitizenship.citizenshipType} option[value="${randomOption}"]`,
         option => option.textContent.trim()
@@ -317,15 +316,12 @@ test.describe('Apply For Citizenship', () => {
 
         await page.type(renewalcitizenship.uploadotherdocuementName, 'Other Document');
         await page.locator(renewalcitizenship.uploadotherdocument).setInputFiles('Dummy_PDF.pdf');
-      
-        
+             
         await page.getByRole('heading', { name: 'Applicant Personal Information' }).click();
         await page.click(renewalcitizenship.DateOfBirth);
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1996');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('10');
         await page.getByRole('link', { name: '1', exact: true }).click();
-
-        
 
         await page.selectOption(renewalcitizenship.PlaceOfBirthCountry, '161');
         await page.click(renewalcitizenship.PlaceOfBirthCountry);
@@ -337,7 +333,6 @@ test.describe('Apply For Citizenship', () => {
         await page.click(renewalcitizenship.ApplicantState);
         await page.keyboard.press('Escape');
         await page.selectOption(renewalcitizenship.Localarea, '1690');
-
 
         await page.click(renewalcitizenship.DateOfMarriage);
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2023');
@@ -358,12 +353,9 @@ test.describe('Apply For Citizenship', () => {
         await page.keyboard.press('Escape');
         await page.selectOption(renewalcitizenship.presentState, '45');
         await page.type(renewalcitizenship.presentCity, 'Abia');
-        
-
-        
+                
         await page.getByRole('heading', { name: 'Beneficiary Information' }).click();
-
-       
+      
         await page.type(renewalcitizenship.BeneficiaryLastName, formData.lastName);
         await page.type(renewalcitizenship.BeneficiaryFirstName, formData.firstName);      
         await page.click(renewalcitizenship.BeneficiaryDateOfBirth);
@@ -382,7 +374,6 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('heading', { name: 'Reason For Application' }).click();
         await page.type(renewalcitizenship.ReasonOfApplication, 'Reason')
-
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
         await page.locator('li').filter({ hasText: '* Upload Passport Photograph' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
@@ -403,8 +394,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(renewalcitizenship.necessaryDocumentName, 'Document Name')
         await page.locator(renewalcitizenship.necessaryDocument).setInputFiles('Dummy_PDF.pdf');
 
-
-
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('You have successfully').isVisible();
@@ -414,9 +403,6 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-
-
     });
 
 });

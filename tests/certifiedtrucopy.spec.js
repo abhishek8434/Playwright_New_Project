@@ -128,7 +128,6 @@ test.describe('Apply For Certified True Copy Of Document', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
        
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
@@ -137,16 +136,12 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
 
         await page.getByRole('link', { name: 'Ok' }).click();
-
-
-
     });
 
     //Without Certificate number
     test('TC 2: Without Certificate number', async () => {
        
         await page.locator('li').filter({ hasText: '* Upload Identification' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
 
         await page.getByRole('heading', { name: 'Husband Details' }).click();
         await page.type(certifiedtrucopy.husbandLastName, hsbndlastName, { delay: 100 });
@@ -177,7 +172,6 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         await page.screenshot({ path: path.join(screenshotDir, 'screenshot-blank-certificateno.png'), fullPage: true });
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
         await page.waitForTimeout(2000)
-
 
     });
 
@@ -255,7 +249,6 @@ test.describe('Apply For Certified True Copy Of Document', () => {
         // await page.getByRole('link', { name: 'Ok' }).click();
 
         await page.waitForTimeout(2000)
-
 
     });
 

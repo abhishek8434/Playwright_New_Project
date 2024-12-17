@@ -264,8 +264,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbysis.necessaryDocumentName, 'Student');
         await page.locator(citizenshipbysis.necessaryDocument).setInputFiles('invalid-file.txt');
         await page.waitForTimeout(2000);
-        
-   
 
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
@@ -421,17 +419,11 @@ test.describe('Apply For Citizenship', () => {
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
    
-        
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
 
-
     });
-
-
-
-
 
 });

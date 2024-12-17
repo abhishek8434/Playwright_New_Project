@@ -130,7 +130,6 @@ test.describe('Apply For Citizenship', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
         
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
@@ -141,23 +140,17 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
       //Invalid file type
       test('TC 2: Invalid file type', async () => {
-        
-
+    
         // Define the specific options you want to randomly select from
         const options = ['1', '2', '3'];
-
         // Pick a random option from the array
         const randomOption = options[Math.floor(Math.random() * options.length)];
-
         // Select the randomly chosen option
         await page.locator(citizenshipbytrp.citizenshiptype).selectOption(randomOption);
-
         console.log(`Randomly selected option: ${randomOption}`);
 
         await page.getByRole('heading', { name: 'Personal Information' }).click();
@@ -223,7 +216,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbytrp.BeneficiaryEmail, formData.email);
         await page.type(citizenshipbytrp.BeneficiaryPhoneNumber, formData.phone);
         
-
         //Reason for application
         await page.getByRole('heading', { name: 'Reason For Application' }).click();
         await page.type(citizenshipbytrp.ReasonOfApplication, '98765214');
@@ -267,9 +259,7 @@ test.describe('Apply For Citizenship', () => {
         console.log(`The sentence "${validationMessage}" appears ${sentenceCount} times.`);
         // Take a full-page screenshot
         await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbytrp_invalid_file.png'), fullPage: true });
-
         console.log('Screenshot saved as citizenshipbytrp_invalid_file.png');
-
 
     });
 
@@ -351,7 +341,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbytrp.BeneficiaryEmail, formData.email);
         await page.type(citizenshipbytrp.BeneficiaryPhoneNumber, formData.phone);
         
-
         //Reason for application
         await page.getByRole('heading', { name: 'Reason For Application' }).click();
         await page.type(citizenshipbytrp.ReasonOfApplication, '98765214');
@@ -384,15 +373,11 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-        
+      
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
-
 
     });
 

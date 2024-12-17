@@ -125,7 +125,6 @@ test.describe('Apply For Citizenship', () => {
 
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
-        //
 
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
@@ -137,14 +136,10 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
-        //
-
         const option = ['3', '4', '5'];
 
         // Pick a random option from the array
@@ -171,20 +166,16 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ForeignCity').click();
         await page.locator('#ForeignCity').fill('test');
 
-
         await page.locator('li').filter({ hasText: 'Upload Identity Card Issued' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
         await page.type(citizenshipattesation.ReasonOfApplication, 'Reason');
-
 
         await page.getByRole('heading', { name: 'foreign spouse information' }).click();
         await page.type(citizenshipattesation.ForeignSpouseEmail, formData.email);
         await page.type(citizenshipattesation.ForeignSpousePhoneNumber, phone);
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-
 
         await page.locator('li').filter({ hasText: '* Upload Application Letter' }).getByRole('textbox').setInputFiles('invalid-file.txt');
         await page.locator('li').filter({ hasText: '* Upload Passport Photograph Upload Upload Cancel' }).getByRole('textbox').setInputFiles('invalid-file.txt');
@@ -229,12 +220,10 @@ test.describe('Apply For Citizenship', () => {
 
         console.log('Screenshot saved as attestation_invalid_file.png');
 
-
     });
 
 
     test('TC 3: all mandatory field ', async () => {
-        //
 
         const option = ['3', '4', '5'];
 
@@ -262,20 +251,16 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ForeignCity').click();
         await page.locator('#ForeignCity').fill('test');
 
-
         await page.locator('li').filter({ hasText: 'Upload Identity Card Issued' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
         await page.type(citizenshipattesation.ReasonOfApplication, 'Reason');
-
 
         await page.getByRole('heading', { name: 'foreign spouse information' }).click();
         await page.type(citizenshipattesation.ForeignSpouseEmail, formData.email);
         await page.type(citizenshipattesation.ForeignSpousePhoneNumber, phone);
 
         await page.getByRole('heading', { name: 'Documents Upload' }).click();
-
 
         await page.locator('li').filter({ hasText: '* Upload Application Letter' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
         await page.locator('li').filter({ hasText: '* Upload Passport Photograph Upload Upload Cancel' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
@@ -297,7 +282,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipattesation.necessaryDocumentName, 'Test');
         await page.setInputFiles(citizenshipattesation.necessaryDocument, 'Dummy_PDF.pdf');
 
-
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('You have successfully').isVisible();
@@ -307,15 +291,11 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-
         
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
 
     });
 

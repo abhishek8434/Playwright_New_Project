@@ -514,39 +514,25 @@ test.describe('Apply For Citizenship', () => {
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyroc.piBirthState, '4');
         await page.type(citizenshipbyroc.piCityOfBirth, 'Bauchi');
-
         await page.type(citizenshipbyroc.piinternationalPassport, '789456123');
-
-
         await page.type(citizenshipbyroc.piformerlastname, formData.BeneficiarylastName);
-
-
         await page.type(citizenshipbyroc.piformerfirstname, formData.BeneficiaryfirstName);
-
         const options = ['1', '2', '3'];
-
         // Pick a random option from the array
         const randomOption = options[Math.floor(Math.random() * options.length)];
-
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.piPresentNationality).selectOption(randomOption);
-
         console.log(`Randomly selected option: ${randomOption}`)
-
-
         await page.click(citizenshipbyroc.pidateofnigeriannatinationality);
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1999');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('9');
         await page.getByRole('link', { name: '1', exact: true }).click();
-
-
         await page.type(citizenshipbyroc.piPreviousAddress, 'Cross River');
         await page.selectOption(citizenshipbyroc.piPreviousCountry, '161');
         await page.click(citizenshipbyroc.piPreviousCountry);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyroc.piPreviousState, '46');
         await page.type(citizenshipbyroc.piPreviousCity, 'Cross River');
-
         await page.type(citizenshipbyroc.piPresentAddress, 'Cross River');
         await page.selectOption(citizenshipbyroc.piPresentCountry, '161');
         await page.click(citizenshipbyroc.piPresentCountry);
@@ -571,107 +557,73 @@ test.describe('Apply For Citizenship', () => {
         await page.getByRole('link', { name: 'Nigerian naira' }).click();
         await page.type(citizenshipbyroc.profAnnualIncome, '98765214');
 
-
         //Parent's Information
         await page.getByRole('heading', { name: 'Parent(s) Information' }).click();
-
         await page.type(citizenshipbyroc.FatherLastName, formData.BeneficiarylastName);
         await page.type(citizenshipbyroc.FatherFirstName, formData.BeneficiaryfirstName);
-
         await page.locator('#FatherCountryOfBirth').selectOption('161');
-
         await page.selectOption(citizenshipbyroc.FatherCountryOfBirth, '161');
         await page.click(citizenshipbyroc.FatherCountryOfBirth);
         await page.keyboard.press('Escape');
-
         await page.type(citizenshipbyroc.FatherPlaceOfBirth, 'Place of Birth');
-
         await page.click(citizenshipbyroc.FatherDateOfBirth)
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1996');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('7');
         await page.getByRole('link', { name: '14' }).click();
-
         await page.selectOption(citizenshipbyroc.FatherPresentNationality, '128')
-
         const randomOption1 = options[Math.floor(Math.random() * options.length)];
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.FatherPresentNationalityAcquired).selectOption(randomOption1);
-
         console.log(`Randomly selected option: ${randomOption1}`)
-
         await page.selectOption(citizenshipbyroc.PreviousFatherNationalityId, '126');
-
-
         const randomOption2 = options[Math.floor(Math.random() * options.length)];
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.PreviousFatherNationalityAcquired).selectOption(randomOption2);
         console.log(`Randomly selected option: ${randomOption2}`)
-
         await page.click(citizenshipbyroc.PreviousFatherDateOfNationalityAcquired);
-
-
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('9');;
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2022');
         await page.getByRole('link', { name: '24' }).click();
-
-
         await page.type(citizenshipbyroc.AddressList_2, 'Cross River');
         await page.selectOption(citizenshipbyroc.AddressList_2__Country, '161');
         await page.click(citizenshipbyroc.AddressList_2__Country);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyroc.Fatherstate2, '46');
         await page.type(citizenshipbyroc.AddressList_2__City, 'Cross River');
-
         await page.type(citizenshipbyroc.AddressList_3, 'Cross River');
         await page.selectOption(citizenshipbyroc.AddressList_3__Country, '161');
         await page.click(citizenshipbyroc.AddressList_3__Country);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyroc.Fatherstate3, '24');
         await page.type(citizenshipbyroc.AddressList_3__City, 'Cross River');
-
-
-
         await page.type(citizenshipbyroc.MotherLastName, formData.BeneficiarylastName);
-
         await page.type(citizenshipbyroc.MotherFirstName, formData.BeneficiaryfirstName);
-
         await page.selectOption(citizenshipbyroc.MotherCountryOfBirth, '161');
-
         await page.type(citizenshipbyroc.MotherPlaceOfBirth, 'Chicago')
-
         await page.click(citizenshipbyroc.MotherDateOfBirth)
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1994');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('9');
         await page.getByRole('link', { name: '18' }).click();
-
         await page.selectOption(citizenshipbyroc.PresentMotherNationalityId, '128');
-
         const randomOption3 = options[Math.floor(Math.random() * options.length)];
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.PresentMotherNationalityAcquired).selectOption(randomOption3);
         console.log(`Randomly selected option: ${randomOption3}`)
-
         await page.selectOption(citizenshipbyroc.PreviousMotherNationalityId, '128');
-
         const randomOption4 = options[Math.floor(Math.random() * options.length)];
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.PreviousMotherNationalityAcquired).selectOption(randomOption4);
         console.log(`Randomly selected option: ${randomOption4}`)
-
         await page.click(citizenshipbyroc.PreviousMotherDateOfNationalityAcquired)
-
         await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2015');
         await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('5');
         await page.getByRole('link', { name: '1', exact: true }).click();
-
-
         await page.type(citizenshipbyroc.AddressList_4, 'Cross River');
         await page.selectOption(citizenshipbyroc.AddressList_4__Country, '161');
         await page.click(citizenshipbyroc.AddressList_4__Country);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyroc.Motherstate4, '46');
         await page.type(citizenshipbyroc.AddressList_4__City, 'Cross River');
-
         await page.type(citizenshipbyroc.AddressList_5, 'Cross River');
         await page.selectOption(citizenshipbyroc.AddressList_5__Country, '161');
         await page.click(citizenshipbyroc.AddressList_5__Country);
@@ -679,72 +631,44 @@ test.describe('Apply For Citizenship', () => {
         await page.selectOption(citizenshipbyroc.Motherstate5, '24');
         await page.type(citizenshipbyroc.AddressList_5__City, 'Cross River');
 
-
         //Marital Status         
-
         await page.getByRole('heading', { name: 'Marital Status' }).click();
-
         const option = ['1', '2', '3', '4', '5']; 
-
         // Pick a random option from the array
         const randomOption5 = option[Math.floor(Math.random() * option.length)]; 
-
         // Select the randomly chosen option
         await page.locator(citizenshipbyroc.SpouseDetails).selectOption(randomOption5);
-
         console.log(`Randomly selected option: ${randomOption5}`);
-
-
 
         if (randomOption5 !== '1') {
             console.log(`Option ${randomOption5} selected: Running custom logic.`);
-
             await page.type(citizenshipbyroc.SpouseSurName, 'Spouse Surname');
             await page.type(citizenshipbyroc.SpouseFirstName, 'Spouse Firstname')
-
             await page.selectOption(citizenshipbyroc.SpouseCountryOfBirth, '161');
-
             await page.click(citizenshipbyroc.SpouseDateOfBirth);
             await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('1998');
             await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('8');
             await page.getByRole('link', { name: '9', exact: true }).click();
-
             await page.selectOption(citizenshipbyroc.PresentSpouseNationalityId, '128');
-
-
-
             // Pick a random option from the array
             const randomOption6 = options[Math.floor(Math.random() * options.length)];
-
             // Select the randomly chosen option
             await page.locator(citizenshipbyroc.PresentSpouseNationalityAcquired).selectOption(randomOption6);
-
             console.log(`Randomly selected option: ${randomOption6}`)
 
-
             await page.click(citizenshipbyroc.PresentSpouseDateOfNationalityAcquired);
-
             await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2016');
             await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('6');;
             await page.getByRole('cell', { name: '13' }).click();
-
-
             await page.selectOption(citizenshipbyroc.PreviousSpouseNationalityId, '128');
-
             const randomOption7 = options[Math.floor(Math.random() * options.length)];
-
             // Select the randomly chosen option
             await page.locator(citizenshipbyroc.PreviousSpouseNationalityAcquired).selectOption(randomOption7);
-
             console.log(`Randomly selected option: ${randomOption7}`)
-
-
-
             await page.click(citizenshipbyroc.PreviousSpouseDateOfNationalityAcquired)
             await page.locator('#ui-datepicker-div').getByRole('combobox').nth(1).selectOption('2021');
             await page.locator('#ui-datepicker-div').getByRole('combobox').first().selectOption('7');
             await page.getByRole('link', { name: '17' }).click();
-
             await page.type(citizenshipbyroc.AddressList_6, 'Cross River');
             await page.selectOption(citizenshipbyroc.AddressList_6__Country, '161');
             await page.click(citizenshipbyroc.AddressList_6__Country);
@@ -752,30 +676,23 @@ test.describe('Apply For Citizenship', () => {
             await page.selectOption(citizenshipbyroc.Spousestate6, '24');
             await page.type(citizenshipbyroc.AddressList_6__City, 'Cross River');
             console.log(`Data filled for option ${randomOption}`);
-
-
         } else {
             console.log("Option 1 selected: Skipping spouse detail form.");
         }
 
         await page.getByRole('heading', { name: 'Information Of Other Relatives' }).click();
 
-
         await page.type(citizenshipbyroc.RelativeLastName, formData.BeneficiarylastName);
         await page.type(citizenshipbyroc.RelativesFirstName, formData.BeneficiaryfirstName);
         await page.selectOption(citizenshipbyroc.RelativesNationalityId, '128');
         await page.type(citizenshipbyroc.RelativesPlaceOfBirth, 'Test Birth Address');
         await page.type(citizenshipbyroc.RelativesRelationship, 'Relative Relationship');
-
-
-
         await page.type(citizenshipbyroc.RelativesPermanentAddress, 'Cross River');
         await page.selectOption(citizenshipbyroc.RelativesListPermanentCountryId, '161');
         await page.click(citizenshipbyroc.RelativesListPermanentCountryId);
         await page.keyboard.press('Escape');
         await page.selectOption(citizenshipbyroc.PermanentStateId, '24');
         await page.type(citizenshipbyroc.RelativesPermanentCity, 'Cross River');
-
         await page.type(citizenshipbyroc.RelativesPresentAddress, 'Cross River');
         await page.selectOption(citizenshipbyroc.RelativesPresentCountryId, '161');
         await page.click(citizenshipbyroc.RelativesPresentCountryId);
@@ -788,7 +705,6 @@ test.describe('Apply For Citizenship', () => {
         await page.getByRole('link', { name: 'Download' }).click();
         const download = await downloadPromise;
         await page.waitForTimeout(2000);
-
 
         //Reason for application
         await page.getByRole('heading', { name: 'Reason(s) For Application' }).click();
@@ -810,8 +726,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbyroc.necessaryDocumentName, 'test document name ');
         await page.locator(citizenshipbyroc.necessaryDocument).setInputFiles('Dummy_PDF.pdf');
 
-
-
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('You have successfully').isVisible();
@@ -821,15 +735,11 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-        
+       
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
-
 
     });
 

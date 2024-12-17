@@ -141,18 +141,12 @@ test.describe('Apply For Citizenship', () => {
         await page.screenshot({ path: path.join(screenshotDir, 'citizenshipbyrocleaveallfieldempty.png'), fullPage: true });
         console.log('Screenshot saved as citizenshipbyrocleaveallfieldempty.png');
         await expect(errorMessageLocator).toHaveText('Please complete all the required field(s).');
-
         await page.getByRole('link', { name: 'Ok' }).click();
-
-
 
     });
 
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
-
-      
-        
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('Please complete all the required field(s).').isVisible();
@@ -166,32 +160,25 @@ test.describe('Apply For Citizenship', () => {
         await expect(page.getByText(validationMessage).first()).toBeVisible({ timeout: 5000 });
         // Get the full text content of the page
         const pageText = await page.textContent('body');
-
         // Count occurrences of the sentence
         const sentenceCount = (pageText.match(new RegExp(validationMessage, 'g')) || []).length;
-
         console.log(`The sentence "${validationMessage}" appears ${sentenceCount} times.`);
         // Take a full-page screenshot
         await page.screenshot({ path: path.join(screenshotDir, 'applicationforbachelorhood_invalid_file.png'), fullPage: true });
-
         console.log('Screenshot saved as applicationforbachelorhood_invalid_file.png');
-
-
     });
 
     //positive flow
     test.only('TC 3: all mandatory field ', async () => {
-              
+           
         await page.type(certificaterequest.MinisterName, 'Namoie')
-        
+      
         await page.getByRole('heading', { name: 'Request For Marriage Booklet(' }).click();
-
         const selectyes = await page.locator(certificaterequest.radioyes);
                 const selectno = await page.locator(certificaterequest.radiono);
                 addressradio1[getRandomNumber(0, 1)] === "yes"
                     ? await selectyes.check()
-                    : await selectno.check();
-q                    
+                    : await selectno.check();                    
         if (await page.locator(certificaterequest.radioyes).isChecked()) {
             // Actions when "yes" is selected
             console.log("Yes is selected. Executing actions for 'yes'.");
@@ -202,11 +189,9 @@ q
         } else {
             // Actions when "no" or another option is selected
             console.log("No is selected. Executing actions for 'no'.");
-
           // Select Discount Type
           const registrycheck = await page.locator(certificaterequest.registry);
           const postalcheck = await page.locator(certificaterequest.postaladdress);
-  
           addressradio[getRandomNumber(0, 1)] === "Registry"
               ? await postalcheck.check()
               : await registrycheck.check();    
@@ -220,7 +205,6 @@ q
                 console.log("No is selected. Executing actions for 'no'.");
                 
             }
-
             const option2 = ['1025', '1038', '1043', '1040', '1041', '1042', '1', '17', '8', '14', '16', '1039', '18'];
             // Pick a random option2 from the array
             const randomOption2 = option2[Math.floor(Math.random() * option2.length)];
@@ -267,8 +251,6 @@ q
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
 
     });
 

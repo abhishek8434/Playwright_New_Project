@@ -130,7 +130,6 @@ test.describe('Apply For Citizenship', () => {
     //Leave all mandatory field blank
     test('TC 1: Leave all mandatory field blank', async () => {
         
-
         await page.getByRole('link', { name: 'Proceed' }).click();
         const errorMessageLocator = page.locator('text=Please complete all the required field(s).');
         await expect(errorMessageLocator).toBeVisible({ timeout: 10000 });
@@ -140,14 +139,11 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
       //Without Certificate number
       test('TC 2: Invalid File ', async () => {
         
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -376,7 +372,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizinshipform.duNecessaryDocumentName, 'Citizenship data');
         await page.locator(citizinshipform.duNecessaryDocument).setInputFiles('invalid-file.txt');
 
-    
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('Please complete all the required field(s).').isVisible();
@@ -400,19 +395,10 @@ test.describe('Apply For Citizenship', () => {
 
         console.log('Screenshot saved as citizenship_invalid_file.png');
 
-
  });
-
-        
-        
-
-
-    
-
-   
+  
     test('TC 3: Positive Flow', async () => {
         
-
         //Personal Information
         await page.getByRole('heading', { name: 'Personal Information' }).click();
         await page.waitForTimeout(2000);
@@ -651,17 +637,12 @@ test.describe('Apply For Citizenship', () => {
             console.log("The text is not visible.");
         }
         //await page.getByRole('link', { name: 'Submit' }).click();
-
-        
+    
         // For payment
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
 
-
     });
-
-
-
 
 });

@@ -147,15 +147,10 @@ test.describe('Apply For Citizenship', () => {
 
         await page.getByRole('link', { name: 'Ok' }).click();
 
-
-
     });
 
     //Invalid file type
     test('TC 2: Invalid file type', async () => {
-
-        //
-
         const option = ['1', '2'];
 
         // Pick a random option from the array
@@ -182,13 +177,10 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ForeignCity').click();
         await page.locator('#ForeignCity').fill('test');
 
-
         await page.locator('li').filter({ hasText: 'Upload Identity Card Issued' }).getByRole('textbox').setInputFiles('invalid-file.txt');
-
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
         await page.type(citizenshipbachelorhood.ReasonOfApplication, 'Reason');
-
 
         await page.getByRole('heading', { name: 'foreign spouse information' }).click();
         await page.type(citizenshipbachelorhood.ForeignSpouseEmail, formData.email);
@@ -235,12 +227,10 @@ test.describe('Apply For Citizenship', () => {
 
         console.log('Screenshot saved as applicationforbachelorhood_invalid_file.png');
 
-
     });
 
     //positive flow
     test('TC 3: all mandatory field ', async () => {
-        //
 
         const option = ['1', '2'];
 
@@ -268,13 +258,10 @@ test.describe('Apply For Citizenship', () => {
         await page.locator('#ForeignCity').click();
         await page.locator('#ForeignCity').fill('test');
 
-
         await page.locator('li').filter({ hasText: 'Upload Identity Card Issued' }).getByRole('textbox').setInputFiles('Dummy_PDF.pdf');
-
 
         await page.getByRole('heading', { name: 'REASON(s) for application' }).click();
         await page.type(citizenshipbachelorhood.ReasonOfApplication, 'Reason');
-
 
         await page.getByRole('heading', { name: 'foreign spouse information' }).click();
         await page.type(citizenshipbachelorhood.ForeignSpouseEmail, formData.email);
@@ -298,7 +285,6 @@ test.describe('Apply For Citizenship', () => {
         await page.type(citizenshipbachelorhood.necessaryDocumentName, 'Test');
         await page.setInputFiles(citizenshipbachelorhood.necessaryDocument, 'Dummy_PDF.pdf');
 
-
         //Proceed button click
         await page.getByRole('link', { name: 'Proceed' }).click();
         const isVisible = await page.getByText('You have successfully').isVisible();
@@ -313,9 +299,6 @@ test.describe('Apply For Citizenship', () => {
         // await page.getByLabel('The information provided').check();
         // await page.getByRole('button', { name: 'Proceed To Payment' }).click();
         // await page.getByRole('link', { name: 'Ok' }).click();
-
-
-
     });
 
 });
