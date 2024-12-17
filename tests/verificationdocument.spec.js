@@ -1,6 +1,5 @@
 const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
 
-
 const { locators } = require('../constants/locators');
 import { DocumentVerification } from '../constants/locators';
 const path = require('path');
@@ -14,9 +13,7 @@ const hsbndlastName = faker.person.lastName('male');
 const wifefirstName = faker.person.firstName('female');
 const wifelastName = faker.person.lastName('female')
 
-
 // Generate a phone number in the format +234XXXXXXXXXX
-
 function generateNigerianPhoneNumber() {
     // Array of valid prefixes
     const prefixes = ['803', '806', '813']; // Common prefixes for Nigerian networks
@@ -36,7 +33,6 @@ const formData = {
     hsbndfirstName
 };
 
-
 dotenv.config();
 
 const LOGIN_URL = process.env.LOGIN_URL;
@@ -44,7 +40,6 @@ const LOGIN_EMAIL = process.env.LOGIN_EMAIL1;
 const LOGIN_PASSWORD = process.env.LOGIN_PASSWORD1;
 const LOGIN_PASSWORD_SECONDARY = process.env.LOGIN_PASSWORD_SECONDARY;
 const MY_APPLICATION_URL = process.env.MY_APPLICATION_URL;
-
 
 async function slowScrollTopBottom(page) {
     const scrollY = 500;
@@ -75,9 +70,6 @@ const screenshotDir = path.join(__dirname, '../Screenshots');
 if (!fs.existsSync(screenshotDir)) {
     fs.mkdirSync(screenshotDir, { recursive: true });
 }
-
-
-
 
 test.describe.configure({ mode: 'serial' });
 test.describe('Application For Verification Of Document', () => {
