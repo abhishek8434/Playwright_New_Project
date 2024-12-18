@@ -1,4 +1,6 @@
 const { test, expect } = require('@playwright/test');
+const path = require('path');
+const fs = require('fs');
 //const { locators } = require('../constants/const');
 import { faker } from '@faker-js/faker';
 
@@ -33,6 +35,13 @@ const formData = {
   confirmPassword: 'Error@123',
   securityAnswer: 'Black'
 };
+
+
+const screenshotDir = path.join(__dirname, '../Screenshots');
+if (!fs.existsSync(screenshotDir)) {
+    fs.mkdirSync(screenshotDir, { recursive: true });
+}
+
 
 // function generateRandomEmail() {
 //   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -81,7 +90,7 @@ test.describe('Form Submission Tests', () => {
     expect(await page.getByText(/Please Agree Terms of Use/i).isVisible()).toBeTruthy();
 
     // Take a screenshot before submission (optional for debugging)
-    await page.screenshot({ path: 'screenshot-leave-blank.png', fullPage: true });
+    await page.screenshot({ path: path.join(screenshotDir, 'screenshot-leave-blank.png'), fullPage: true });
   });
 
   test('Negative Test 2: Invalid email format', async ({ page }) => {
@@ -97,7 +106,7 @@ test.describe('Form Submission Tests', () => {
     await page.locator('input#AgreeTermsOfUse').check(); // Agree to terms
 
     // Take a screenshot before submission (optional for debugging)
-    await page.screenshot({ path: 'screenshot-invalid-email.png', fullPage: true });
+    await page.screenshot({ path: path.join(screenshotDir, 'screenshot-invalid-email.png'), fullPage: true });
 
     await page.waitForSelector('xpath=/html/body/div[5]/div/div[2]/div/form/p/span[1]/input')
     await page.click('xpath=/html/body/div[5]/div/div[2]/div/form/p/span[1]/input')
@@ -122,7 +131,7 @@ test.describe('Form Submission Tests', () => {
     await page.locator('input#AgreeTermsOfUse').check(); // Agree to terms
 
     // Take a screenshot before submission
-    await page.screenshot({ path: 'screenshot-password-mismatch.png', fullPage: true });
+    await page.screenshot({ path: path.join(screenshotDir, 'screenshot-password-mismatch.png'), fullPage: true });
 
     await page.waitForSelector('xpath=/html/body/div[5]/div/div[2]/div/form/p/span[1]/input')
     await page.click('xpath=/html/body/div[5]/div/div[2]/div/form/p/span[1]/input')
@@ -155,7 +164,7 @@ test.describe('Form Submission Tests', () => {
     await page.locator('input#AgreeTermsOfUse').check();  // Agree to terms
 
     // Take a screenshot before form submission
-    await page.screenshot({ path: 'screenshot-register.png', fullPage: true });
+    await page.screenshot({ path: path.join(screenshotDir, 'screenshot-register.png'), fullPage: true });
 
     // Capture the start time
     const startTime = Date.now();
@@ -176,6 +185,6 @@ test.describe('Form Submission Tests', () => {
     // Assert that the success message is correct
     expect(successMessage).toContain('Congratulations! Your account has been created successfully.');
     // Take a screenshot before form submission
-    await page.screenshot({ path: 'screenshot-success-message.png', fullPage: true });
+    await page.screenshot({ path: path.join(screenshotDir, 'screenshot-success-message.png'), fullPage: true });
   });
 });
